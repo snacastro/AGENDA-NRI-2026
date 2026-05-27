@@ -120,9 +120,19 @@ function sD(date){
       // Médico principal de UNIC do dia (8-20h)
       const u8 = NU[wd];
       let dayLabel;
+      let conflictDay = false;
       if (u8) {
         if (d.a.includes(u8)) {
-          dayLabel = '<span class="pl bad">⚠ '+u8+' ausente — a definir substituição (turno 8-20h)</span>';
+          // Verificar se há substituto UNIC registado para hoje
+          const unicSub = matchSub("UNIC", subsHere);
+          if (unicSub) {
+            dayLabel = '<span class="pl absnc">'+u8+' ausente</span> <span class="subarr">→ '+unicSub.s+' cobre 8-20h</span>';
+            const idx = subsHere.indexOf(unicSub);
+            if (idx >= 0) usedSubIdx.add(idx);
+          } else {
+            dayLabel = '<span class="pl bad">⚠ '+u8+' ausente — a definir substituição (turno 8-20h)</span>';
+            conflictDay = true;
+          }
         } else {
           dayLabel = '<span class="pl esc">'+u8+'</span>';
         }
@@ -130,7 +140,6 @@ function sD(date){
         // sexta: UNIC rotativa MR/PP
         dayLabel = '<span style="font-size:12px;color:#666">via Horários (UNIC rotativa MR/PP)</span>';
       }
-      const conflictDay = u8 && d.a.includes(u8);
       h+='<div class="drw'+(conflictDay?' conflict':'')+'"><span class="dlb">Dia 8-20h</span><div>'+dayLabel+'</div></div>';
     }
     const u=NU[wd];
