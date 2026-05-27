@@ -107,8 +107,8 @@ function sD(date){
     const co=wd<5&&NRI.hasSched[String(wd)].includes(m);
     const c=NRI.colors[m];
     const sub=co?"":" · não conta";
-    if(co)h+='<span class="pl" style="background:'+c.bg+";color:"+c.text+'">'+m+" · "+NRI.names[m]+sub+"</span>";
-    else h+='<span class="pl absnc">'+m+" · "+NRI.names[m]+sub+"</span>";
+    if(co)h+='<span class="pl" style="background:'+c.bg+";color:"+c.text+'">'+m+sub+"</span>";
+    else h+='<span class="pl absnc">'+m+sub+"</span>";
   });
   h+="</div></div>";
   if(we){
@@ -124,7 +124,7 @@ function sD(date){
         if (d.a.includes(u8)) {
           dayLabel = '<span class="pl bad">⚠ '+u8+' ausente — a definir substituição (turno 8-20h)</span>';
         } else {
-          dayLabel = '<span class="pl esc">'+u8+' · '+NRI.names[u8]+'</span>';
+          dayLabel = '<span class="pl esc">'+u8+'</span>';
         }
       } else {
         // sexta: UNIC rotativa MR/PP
