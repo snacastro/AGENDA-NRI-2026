@@ -116,7 +116,23 @@ function sD(date){
     const fLabel = d.f ? ('<span class="pl '+(cf?'bad':'esc')+'">'+d.f+(cf?' ⚠ AUSENTE':'')+'</span>') : '<span style="color:#a32d2d;font-size:13px">não atribuído</span>';
     h+='<div class="drw'+(cf?' conflict':'')+'"><span class="dlb">Cobertura dia todo</span><div>'+fLabel+(cf?' <span style="color:#c0392b;font-weight:600;font-size:12px">⚠ INCOMPATIBILIDADE: escalado mas marcado ausente</span>':'')+"</div></div>";
   } else {
-    h+='<div class="drw"><span class="dlb">Dia 8-20h</span><div><span style="font-size:12px;color:#666">via Horários</span></div></div>';
+    {
+      // Médico principal de UNIC do dia (8-20h)
+      const u8 = NU[wd];
+      let dayLabel;
+      if (u8) {
+        if (d.a.includes(u8)) {
+          dayLabel = '<span class="pl bad">⚠ '+u8+' ausente — a definir substituição (turno 8-20h)</span>';
+        } else {
+          dayLabel = '<span class="pl esc">'+u8+' · '+NRI.names[u8]+'</span>';
+        }
+      } else {
+        // sexta: UNIC rotativa MR/PP
+        dayLabel = '<span style="font-size:12px;color:#666">via Horários (UNIC rotativa MR/PP)</span>';
+      }
+      const conflictDay = u8 && d.a.includes(u8);
+      h+='<div class="drw'+(conflictDay?' conflict':'')+'"><span class="dlb">Dia 8-20h</span><div>'+dayLabel+'</div></div>';
+    }
     const u=NU[wd];
     const cn = d.n && d.a.includes(d.n);
     h+='<div class="drw'+(cn?' conflict':'')+'"><span class="dlb">Noite 20-8h</span><div>';
@@ -129,7 +145,11 @@ function sD(date){
     h+="</div></div>";
     if(d.a.length>0&&wd<5){
       let uc=[];
-      d.a.forEach(m=>{((NRI.weekly[wd]||{})[m]||[]).forEach(([p,t])=>{const ft=filterTask(t);if(ft)uc.push({m,p,t:ft});});});
+      d.a.forEach(m=>{((NRI.weekly[wd]||{})[m]||[]).forEach(([p,t])=>{
+        // UNIC 14-17h é assegurada pelo médico da manhã — não conta como descoberto
+        if(p==="14-17" && /^UNIC$/i.test(t.trim())) return;
+        const ft=filterTask(t);if(ft)uc.push({m,p,t:ft});
+      });});
       // Regra dos pares de Angio matinal: se só 1 do par está ausente, removê-lo do quadro vermelho
       // e adicionar à caixa laranja (angiografia com 1 só médico).
       const pair=ANGIO_PAIRS[wd];
