@@ -180,6 +180,35 @@ function sD(date){
         }
         // Se ambos do par à sexta na esquerda: 1 UNIC + 1 ausente → Angio descoberto (deixar uc tal como está, ambos aparecem em vermelho)
       }
+      // Fundir 14-17 + 17-20 do mesmo médico/tarefa em 14-20 para RM e AngioTAC.
+      // Na realidade é 1 turno só; só funde se ambos meios-turnos tiverem o mesmo estado de substituição
+      // (ambos sem sub, ou ambos com a mesma sub). Se diferentes, mantém a divisão.
+      {
+        const isMergeT=t=>{const n=(t||"").trim().toLowerCase();return n==="rm"||/^angio.?tac$/.test(n);};
+        const ucM=[],ucU=new Set();
+        for(let i=0;i<uc.length;i++){
+          if(ucU.has(i))continue;
+          const a=uc[i];
+          if(a.p==="14-17"&&isMergeT(a.t)){
+            let j=-1;
+            for(let k=0;k<uc.length;k++){
+              if(k===i||ucU.has(k))continue;
+              const b=uc[k];
+              if(b.m===a.m&&b.p==="17-20"&&b.t===a.t){j=k;break;}
+            }
+            if(j>=0){
+              const ma=matchSub(a.t,subsHere),mb=matchSub(uc[j].t,subsHere);
+              if(ma===mb){
+                ucM.push({m:a.m,p:"14-20",t:a.t});
+                ucU.add(i);ucU.add(j);
+                continue;
+              }
+            }
+          }
+        }
+        for(let i=0;i<uc.length;i++){if(!ucU.has(i))ucM.push(uc[i]);}
+        uc=ucM;
+      }
       if(uc.length>0){
         h+='<div class="uncov"><div class="uctt">⚠ Tarefas clínicas a descoberto</div><ul>';
         uc.forEach(x=>{
