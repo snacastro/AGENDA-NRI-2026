@@ -267,6 +267,83 @@ function bA(){
     });
     h += '</ul></div>';
   }
+  // 🔔 SUBSTITUIÇÕES POR DEFINIR — turnos descobertos durante o dia sem sub registado.
+  // Reaproveita as regras de sD: UNIC 14-17 não conta (coberto pela manhã), UNIC do médico
+  // UNIC do dia já está englobado no UNIC 8-20, filtro Angio matinal por pares, fusão RM/AngioTAC 14-20.
+  {
+    const pendingList = [];
+    fu.forEach(d => {
+      const dt = new Date(d.d+"T12:00:00");
+      const wdv = (dt.getDay()+6)%7;
+      const subsHere = (NRI.subs[d.d]||[]).slice();
+      const items = [];
+      if (wdv < 5 && d.t === "Ú") {
+        const u8 = NU[wdv];
+        if (u8 && d.a.includes(u8) && !matchSub("UNIC", subsHere)) {
+          items.push({label:"UNIC 8-20h", who:u8});
+        }
+        let uc = [];
+        d.a.forEach(m => {
+          ((NRI.weekly[wdv]||{})[m]||[]).forEach(([p,tk]) => {
+            if (p === "14-17" && /^UNIC$/i.test(tk.trim())) return;
+            if (m === u8 && /^UNIC$/i.test((tk||"").trim())) return;
+            const ft = filterTask(tk);
+            if (ft) uc.push({m:m, p:p, t:ft});
+          });
+        });
+        const pairP = ANGIO_PAIRS[wdv];
+        if (pairP) {
+          const absInPair = pairP.filter(m => d.a.includes(m));
+          if (absInPair.length === 1) {
+            uc = uc.filter(x => !(x.p === "8-14" && /angio/i.test(x.t) && x.m === absInPair[0]));
+          }
+        }
+        const isMergeT = tk => { const n=(tk||"").trim().toLowerCase(); return n==="rm"||/^angio.?tac$/.test(n); };
+        const ucM = [], ucU = new Set();
+        for (let i=0; i<uc.length; i++) {
+          if (ucU.has(i)) continue;
+          const a = uc[i];
+          if (a.p === "14-17" && isMergeT(a.t)) {
+            let j = -1;
+            for (let k=0; k<uc.length; k++) {
+              if (k===i || ucU.has(k)) continue;
+              const b = uc[k];
+              if (b.m === a.m && b.p === "17-20" && b.t === a.t) { j = k; break; }
+            }
+            if (j >= 0) {
+              const ma = matchSub(a.t, subsHere), mb = matchSub(uc[j].t, subsHere);
+              if (ma === mb) { ucM.push({m:a.m, p:"14-20", t:a.t}); ucU.add(i); ucU.add(j); continue; }
+            }
+          }
+        }
+        for (let i=0; i<uc.length; i++) if (!ucU.has(i)) ucM.push(uc[i]);
+        uc = ucM;
+        uc.forEach(x => {
+          if (!matchSub(x.t, subsHere)) items.push({label: x.p+"h "+x.t, who: x.m});
+        });
+      } else if (d.t === "S" || d.t === "D" || d.t === "F") {
+        if (d.f && d.a.includes(d.f) && !matchSub(d.f, subsHere)) {
+          items.push({label:"Cobertura dia todo", who:d.f});
+        }
+      }
+      if (items.length > 0) pendingList.push({d:d.d, items:items});
+    });
+    if (pendingList.length > 0) {
+      h += '<div style="background:#fff3e0;border:2px solid #FF9800;border-radius:8px;padding:12px;margin-bottom:14px"><div style="font-weight:700;color:#bf5500;margin-bottom:6px;font-size:14px">🔔 SUBSTITUIÇÕES POR DEFINIR ('+pendingList.length+' dia'+(pendingList.length>1?'s':'')+')</div><div style="font-size:12px;color:#854f0b;margin-bottom:8px">Turnos descobertos sem substituto registado. Clica para abrir o detalhe do dia.</div><ul style="margin:0;padding-left:18px;color:#6d3a00;font-size:13px;list-style:none">';
+      const wnP = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+      pendingList.forEach(pp => {
+        const dt2 = new Date(pp.d+"T12:00:00");
+        const wdv2 = (dt2.getDay()+6)%7;
+        const df2 = dt2.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
+        h += '<li style="margin:6px 0;cursor:pointer" onclick="sV(\'cal\');setTimeout(()=>sD(\''+pp.d+'\'),50)"><strong>'+wnP[wdv2]+', '+df2+'</strong> <span style="opacity:.7">('+pp.d+')</span><ul style="margin:2px 0 0;padding-left:18px;list-style:disc;color:#501313">';
+        pp.items.forEach(it => {
+          h += '<li><strong>'+it.label+'</strong> — '+it.who+' ausente, sem substituto</li>';
+        });
+        h += '</ul></li>';
+      });
+      h += '</ul></div>';
+    }
+  }
   const wk={};
   fu.forEach(d=>{
     const dt=new Date(d.d+"T00:00:00");
