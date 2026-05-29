@@ -175,8 +175,13 @@ function sD(date){
           } else if(wd===4&&d.a.includes("AA")){
             note=" — AA ausente, pode precisar cobrir UNIC";
           }
+          // "Fica na angio 14-17": se o lone do par não tem nada agendado a 14-17,
+          // cobre também o 14-17 Angio do ausente (caso típico: 2ªf AA ausente → AM fica).
+          const aloneFree1417_sD=((NRI.weekly[wd]||{})[alone]||[]).filter(p_=>p_[0]==="14-17").length===0;
+          if(aloneFree1417_sD) note=(note?note+" · ":" — ")+alone+" fica na angio 14-17h";
           angioAlerts.push({absent:absInPair[0],alone:alone,note:note});
           uc=uc.filter(x=>!(x.p==="8-14"&&/angio/i.test(x.t)&&x.m===absInPair[0]));
+          if(aloneFree1417_sD) uc=uc.filter(x=>!(x.p==="14-17"&&/angio/i.test(x.t)&&x.m===absInPair[0]));
         }
         // Se ambos do par à sexta na esquerda: 1 UNIC + 1 ausente → Angio descoberto (deixar uc tal como está, ambos aparecem em vermelho)
       }
@@ -295,7 +300,12 @@ function bA(){
         if (pairP) {
           const absInPair = pairP.filter(m => d.a.includes(m));
           if (absInPair.length === 1) {
+            const aloneP = pairP.find(m => !d.a.includes(m));
+            const aloneFree1417_bA = ((NRI.weekly[wdv]||{})[aloneP]||[]).filter(p_=>p_[0]==="14-17").length === 0;
             uc = uc.filter(x => !(x.p === "8-14" && /angio/i.test(x.t) && x.m === absInPair[0]));
+            if (aloneFree1417_bA) {
+              uc = uc.filter(x => !(x.p === "14-17" && /angio/i.test(x.t) && x.m === absInPair[0]));
+            }
           }
         }
         const isMergeT = tk => { const n=(tk||"").trim().toLowerCase(); return n==="rm"||/^angio.?tac$/.test(n); };
@@ -340,6 +350,45 @@ function bA(){
           h += '<li><strong>'+it.label+'</strong> — '+it.who+' ausente, sem substituto</li>';
         });
         h += '</ul></li>';
+      });
+      h += '</ul></div>';
+    }
+  }
+  // ⚠️ ELEMENTO SOZINHO NA ANGIO — nota de risco organizacional.
+  // 1 do par 8-14 Angio ausente, outro cobre sozinho (sem substituto formal).
+  // Tecnicamente resolvido (1 médico assegura a angio) mas registado para gestão de carga/segurança.
+  {
+    const aloneOnAngio = [];
+    fu.forEach(d => {
+      if (d.t !== "Ú") return;
+      const dt2 = new Date(d.d+"T12:00:00");
+      const wdv2 = (dt2.getDay()+6)%7;
+      if (wdv2 >= 5) return;
+      const pair2 = ANGIO_PAIRS[wdv2];
+      if (!pair2) return;
+      const absInPair2 = pair2.filter(m => d.a.includes(m));
+      if (absInPair2.length !== 1) return;
+      const absent2 = absInPair2[0];
+      const alone2 = pair2.find(m => m !== absent2);
+      if (d.a.includes(alone2)) return;
+      // Se há sub explícita para Angio, é "Substituição registada" e não "sozinho"
+      const subsHere2 = (NRI.subs[d.d]||[]);
+      if (matchSub("Angio", subsHere2)) return;
+      const turnos = ["8-14h"];
+      const aloneFree1417_alone = ((NRI.weekly[wdv2]||{})[alone2]||[]).filter(p_=>p_[0]==="14-17").length === 0;
+      const absentHas1417Angio = ((NRI.weekly[wdv2]||{})[absent2]||[]).some(p_ => p_[0]==="14-17" && /angio/i.test(p_[1]));
+      if (aloneFree1417_alone && absentHas1417Angio) turnos.push("14-17h");
+      aloneOnAngio.push({d:d.d, lone:alone2, absent:absent2, turnos:turnos});
+    });
+    if (aloneOnAngio.length > 0) {
+      h += '<div style="background:#fff3e0;border:2px solid #f57c00;border-radius:8px;padding:12px;margin-bottom:14px"><div style="font-weight:700;color:#bf5500;margin-bottom:6px;font-size:14px">⚠️ ELEMENTO SOZINHO NA ANGIO ('+aloneOnAngio.length+' dia'+(aloneOnAngio.length>1?'s':'')+')</div><div style="font-size:12px;color:#854f0b;margin-bottom:8px">Resolvido na prática (1 só médico cobre), mas requer atenção à carga de trabalho e segurança. Clica para abrir o detalhe do dia.</div><ul style="margin:0;padding-left:18px;color:#6d3a00;font-size:13px;list-style:none">';
+      const wnA = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+      aloneOnAngio.forEach(a => {
+        const dtA = new Date(a.d+"T12:00:00");
+        const wdvA = (dtA.getDay()+6)%7;
+        const dfA = dtA.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
+        const turnosStr = a.turnos.join(" + ");
+        h += '<li style="margin:6px 0;cursor:pointer" onclick="sV(\'cal\');setTimeout(()=>sD(\''+a.d+'\'),50)"><strong>'+wnA[wdvA]+', '+dfA+'</strong> <span style="opacity:.7">('+a.d+')</span> · <strong>'+a.lone+'</strong> sozinho na Angio <strong>'+turnosStr+'</strong> ('+a.absent+' ausente)</li>';
       });
       h += '</ul></div>';
     }
