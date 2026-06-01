@@ -1,20 +1,627 @@
-<!DOCTYPE html><html lang="pt-PT"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><title>Agenda NRI GAIA 2026</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafaf9;color:#1a1a1a;line-height:1.5;-webkit-text-size-adjust:100%}.wrap{max-width:1100px;margin:0 auto;padding:16px}.hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}.title{font-size:20px;font-weight:600;margin:0}.sub{font-size:13px;color:#666;margin-top:2px}.tabs{display:flex;gap:4px;background:#ededeb;padding:3px;border-radius:8px}.tab{padding:6px 12px;border-radius:6px;cursor:pointer;border:none;background:transparent;color:#666;font-size:13px}.tab.active{background:#fff;color:#1a1a1a;box-shadow:0 1px 2px rgba(0,0,0,0.05)}.year{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}@media(max-width:740px){.year{grid-template-columns:repeat(3,1fr)}}@media(max-width:540px){.year{grid-template-columns:repeat(2,1fr)}}@media(max-width:340px){.year{grid-template-columns:1fr}}.month{background:#fff;border:0.5px solid #e0ddd5;border-radius:10px;padding:8px}.mname{font-size:12px;font-weight:600;margin:0 0 4px;text-align:center}.mgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}.mhdr{font-size:9px;text-align:center;color:#888;padding:1px 0}.d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:11px;border-radius:3px;cursor:pointer;background:#f4f3ef;color:#1a1a1a;border:0.5px solid transparent;user-select:none;-webkit-tap-highlight-color:transparent;font-weight:500;position:relative}.d.empty{background:transparent;cursor:default}.d.weekend{background:#ededeb;color:#666}.d.holiday{background:#FFE0B2;color:#8B4513}.d.today{outline:2px solid #185fa5;outline-offset:-1px}.d.selected{outline:3px solid #185fa5;outline-offset:-2px;font-weight:700}.d .subdot{position:absolute;top:1px;right:2px;width:5px;height:5px;border-radius:50%;background:#2E7D32}.lg{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:#666;margin-top:12px;justify-content:center}.lg span{display:flex;align-items:center;gap:4px;padding:2px 6px;border-radius:4px}.det{margin-top:14px;background:#fff;border:0.5px solid #e0ddd5;border-radius:10px;padding:14px 16px;display:none}.det.show{display:block}.dhd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}.ddt{font-size:16px;font-weight:600;margin:0}.dmt{font-size:12px;color:#666}.drw{display:flex;gap:8px;align-items:flex-start;margin:8px 0;font-size:13px;flex-wrap:wrap}.dlb{min-width:100px;color:#666;font-size:12px}.pl{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;margin-right:4px;margin-bottom:4px;font-weight:500}.pl.absnc{background:#ededeb;color:#666}.pl.esc{background:#e1f5ee;color:#085041}.pl.warn{background:#faeeda;color:#854f0b}.uncov{margin-top:8px;padding:10px;background:#fcebeb;border-radius:6px;font-size:12px;color:#501313}.uctt{font-weight:600;color:#791f1f;margin-bottom:6px}.uncov ul{margin:0;padding-left:18px}.uncov li{margin:2px 0}.subarr{display:inline-block;margin-left:8px;padding:1px 6px;background:#2E7D32;color:#fff;border-radius:8px;font-weight:600;font-size:11px}.nightcov{margin-top:10px;padding:6px 10px;background:#e1f5ee;color:#04342c;border-radius:6px;font-size:12px;border-left:3px solid #2E7D32}.partial{margin-top:8px;padding:10px;background:#fff3e0;border-radius:6px;font-size:12px;color:#6d3a00;border-left:3px solid #FF9800}.ptt{font-weight:600;color:#bf5500;margin-bottom:6px}.partial ul{margin:0;padding-left:18px}.partial li{margin:2px 0}.subextra{margin-top:8px;padding:10px;background:#e8f5e9;border-radius:6px;font-size:12px;color:#1b5e20}.subextt{font-weight:600;color:#1b5e20;margin-bottom:6px}.subextra ul{margin:0;padding-left:18px}.subextra li{margin:2px 0}.ok{margin-top:8px;padding:10px;background:#e1f5ee;border-radius:6px;font-size:12px;color:#04342c}.byp{display:none}.byp.show{display:block}.al{background:#fcebeb;border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:13px;color:#501313}.al strong{color:#791f1f;font-weight:600;display:block;margin-bottom:2px}.ft{margin-top:18px;padding-top:12px;border-top:0.5px solid #e0ddd5;font-size:11px;color:#888;text-align:center}@media(prefers-color-scheme:dark){body{background:#0f0f0f;color:#e5e5e5}.month,.det{background:#1a1a1a;border-color:#333}.d{background:#262626;color:#e5e5e5}.d.weekend{background:#1f1f1f;color:#888}.tab.active{background:#262626;color:#fff}.ft{border-color:#333}.ddt,.title{color:#fff}.subextra{background:#1b3a1f;color:#c8e6c9}}</style></head><body><div class="wrap"><div class="hdr"><div><p class="title">Agenda NRI GAIA 2026</p><p class="sub">365 dias · 6 elementos · cores por médico</p></div><div class="tabs"><button class="tab active" data-view="cal">Calendário</button><button class="tab" data-view="alert">Alertas</button><button class="tab" data-view="subs">Substituições</button></div></div><div id="view-cal"><div class="year" id="year"></div><div class="lg" id="legend"></div><div class="det" id="det"></div></div><div class="byp" id="view-alert"></div><div class="byp" id="view-subs"></div><div class="ft">ESCALA 2026.xlsx · Substitutos via Agenda_NRI_2026.xlsx</div></div><script>
-const NRI={"year":2026,"days":[{"d":"2026-01-01","w":"Qui","t":"F","h":"Ano Novo","a":[],"n":"","f":"MR","m":false},{"d":"2026-01-02","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-01-03","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-01-04","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-01-05","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-01-06","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-01-07","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-08","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-01-09","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-10","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-01-11","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-01-12","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-01-13","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-01-14","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-15","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-01-16","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-01-17","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-01-18","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-01-19","w":"Seg","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-01-20","w":"Ter","t":"Ú","h":"","a":["SC"],"n":"AM","f":"","m":false},{"d":"2026-01-21","w":"Qua","t":"Ú","h":"","a":["SC"],"n":"MR","f":"","m":false},{"d":"2026-01-22","w":"Qui","t":"Ú","h":"","a":["SC"],"n":"AA","f":"","m":false},{"d":"2026-01-23","w":"Sex","t":"Ú","h":"","a":["SC"],"n":"14-20 PP; 20-08 MR","f":"","m":false},{"d":"2026-01-24","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"MQR","m":false},{"d":"2026-01-25","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-01-26","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-01-27","w":"Ter","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-01-28","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-29","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-01-30","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-31","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-02-01","w":"Dom","t":"D","h":"","a":[],"n":"","f":"08-00h- MR; 00-08 PP","m":false},{"d":"2026-02-02","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-02-03","w":"Ter","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-04","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-02-05","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-06","w":"Sex","t":"Ú","h":"","a":[],"n":"14-20 - MQR; 20-08 MR","f":"","m":false},{"d":"2026-02-07","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"08-20 SC; 20-08 PP","m":false},{"d":"2026-02-08","w":"Dom","t":"D","h":"","a":[],"n":"","f":".08-20 SC; 20-08 MR","m":false},{"d":"2026-02-09","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-02-10","w":"Ter","t":"Ú","h":"","a":["MR"],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-11","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-02-12","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-13","w":"Sex","t":"Ú","h":"","a":[],"n":"14-20 PP; 20-08 MR","f":"","m":false},{"d":"2026-02-14","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"8-20 MR; 20-8 PP","m":false},{"d":"2026-02-15","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"MQR","m":false},{"d":"2026-02-16","w":"Seg","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-02-17","w":"Ter","t":"Ú","h":"","a":["SC"],"n":"MQR+AM","f":"","m":false},{"d":"2026-02-18","w":"Qua","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-02-19","w":"Qui","t":"Ú","h":"","a":["SC"],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-20","w":"Sex","t":"Ú","h":"","a":["SC"],"n":"14-20 - MQR; 20-08 MR","f":"","m":false},{"d":"2026-02-21","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-02-22","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-02-23","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-02-24","w":"Ter","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-25","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-02-26","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-27","w":"Sex","t":"Ú","h":"","a":[],"n":"14-20h PP; 20-08h MR","f":"","m":false},{"d":"2026-02-28","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"08-20h MR; 20-08h PP","m":false},{"d":"2026-03-01","w":"Dom","t":"D","h":"","a":[],"n":"","f":"08-16 SC; 16-20 PP; 20-08 MR","m":false},{"d":"2026-03-02","w":"Seg","t":"Ú","h":"","a":["AM"],"n":"PP","f":"","m":false},{"d":"2026-03-03","w":"Ter","t":"Ú","h":"","a":["AM"],"n":"MR","f":"","m":false},{"d":"2026-03-04","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-05","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-03-06","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-03-07","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-03-08","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-03-09","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-03-10","w":"Ter","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-03-11","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-12","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-03-13","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-14","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-03-15","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-03-16","w":"Seg","t":"Ú","h":"","a":[],"n":"PP 08h-14h; AA 14h-08h","f":"","m":false},{"d":"2026-03-17","w":"Ter","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-03-18","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-19","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-03-20","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR 14h-20h ; AA 20-08h","f":"","m":false},{"d":"2026-03-21","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-03-22","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-03-23","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-03-24","w":"Ter","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-03-25","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-26","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-03-27","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-03-28","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-03-29","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-03-30","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-03-31","w":"Ter","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-04-01","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-04-02","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-04-03","w":"Sex","t":"F","h":"Sexta-feira Santa","a":[],"n":"","f":"08-20h PP; 20-00h; 00-08h PP","m":false},{"d":"2026-04-04","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-04-05","w":"Dom","t":"F","h":"Páscoa","a":["SC"],"n":"","f":"MR","m":false},{"d":"2026-04-06","w":"Seg","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-04-07","w":"Ter","t":"Ú","h":"","a":["SC"],"n":"AM","f":"","m":false},{"d":"2026-04-08","w":"Qua","t":"Ú","h":"","a":["PP","SC"],"n":"MR","f":"","m":true},{"d":"2026-04-09","w":"Qui","t":"Ú","h":"","a":["PP","SC"],"n":"AA","f":"","m":true},{"d":"2026-04-10","w":"Sex","t":"Ú","h":"","a":["PP","SC"],"n":"MR","f":"","m":true},{"d":"2026-04-11","w":"Sáb","t":"S","h":"","a":["PP","SC"],"n":"","f":"AA","m":true},{"d":"2026-04-12","w":"Dom","t":"D","h":"","a":["PP","SC"],"n":"","f":"MR","m":true},{"d":"2026-04-13","w":"Seg","t":"Ú","h":"","a":["PP"],"n":"AA","f":"","m":false},{"d":"2026-04-14","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-04-15","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-04-16","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-04-17","w":"Sex","t":"Ú","h":"","a":[],"n":"14-08 AM","f":"","m":false},{"d":"2026-04-18","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"08-20 MQR; 20-08 AA","m":false},{"d":"2026-04-19","w":"Dom","t":"D","h":"","a":[],"n":"","f":"08-18 SC; 18-08 AM","m":false},{"d":"2026-04-20","w":"Seg","t":"Ú","h":"","a":["PP"],"n":"MR","f":"","m":false},{"d":"2026-04-21","w":"Ter","t":"Ú","h":"","a":["PP"],"n":"AM","f":"","m":false},{"d":"2026-04-22","w":"Qua","t":"Ú","h":"","a":["PP"],"n":"MR","f":"","m":false},{"d":"2026-04-23","w":"Qui","t":"Ú","h":"","a":["PP"],"n":"AA","f":"","m":false},{"d":"2026-04-24","w":"Sex","t":"Ú","h":"","a":["PP"],"n":"AA","f":"","m":false},{"d":"2026-04-25","w":"Sáb","t":"F","h":"Dia da Liberdade","a":["PP"],"n":"","f":"AA","m":false},{"d":"2026-04-26","w":"Dom","t":"D","h":"","a":["PP"],"n":"","f":"AA","m":false},{"d":"2026-04-27","w":"Seg","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-04-28","w":"Ter","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-04-29","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-04-30","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-05-01","w":"Sex","t":"F","h":"Dia do Trabalhador","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-02","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-03","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-04","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-05-05","w":"Ter","t":"Ú","h":"","a":["PP"],"n":"AM","f":"","m":false},{"d":"2026-05-06","w":"Qua","t":"Ú","h":"","a":["MR","PP"],"n":"AA","f":"","m":true},{"d":"2026-05-07","w":"Qui","t":"Ú","h":"","a":["MR"],"n":"AA","f":"","m":false},{"d":"2026-05-08","w":"Sex","t":"Ú","h":"","a":["MR"],"n":"AA","f":"","m":false},{"d":"2026-05-09","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-05-10","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-05-11","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-05-12","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-05-13","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-05-14","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-05-15","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-05-16","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-05-17","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-18","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-05-19","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-05-20","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-05-21","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-05-22","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-05-23","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-05-24","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AM","m":false},{"d":"2026-05-25","w":"Seg","t":"Ú","h":"","a":["PP","AA"],"n":"AM","f":"","m":true},{"d":"2026-05-26","w":"Ter","t":"Ú","h":"","a":["PP","AA"],"n":"MR","f":"","m":true},{"d":"2026-05-27","w":"Qua","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-05-28","w":"Qui","t":"Ú","h":"","a":["AA"],"n":"PP","f":"","m":false},{"d":"2026-05-29","w":"Sex","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-05-30","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-31","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-06-01","w":"Seg","t":"Ú","h":"","a":["AA"],"n":"PP","f":"","m":false},{"d":"2026-06-02","w":"Ter","t":"Ú","h":"","a":["AA"],"n":"AM","f":"","m":false},{"d":"2026-06-03","w":"Qua","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-06-04","w":"Qui","t":"F","h":"Corpo de Deus","a":[],"n":"","f":"AA","m":false},{"d":"2026-06-05","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-06-06","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"08-20 MQR; 20-08 MR","m":false},{"d":"2026-06-07","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-06-08","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-06-09","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-06-10","w":"Qua","t":"F","h":"Dia de Portugal","a":[],"n":"","f":"MR","m":false},{"d":"2026-06-11","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-06-12","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-06-13","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-06-14","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-06-15","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-06-16","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-06-17","w":"Qua","t":"Ú","h":"","a":["SC"],"n":"MR","f":"","m":false},{"d":"2026-06-18","w":"Qui","t":"Ú","h":"","a":["SC"],"n":"AA","f":"","m":false},{"d":"2026-06-19","w":"Sex","t":"Ú","h":"","a":["SC","PP"],"n":"AA","f":"","m":true},{"d":"2026-06-20","w":"Sáb","t":"S","h":"","a":["PP"],"n":"","f":"AA","m":false},{"d":"2026-06-21","w":"Dom","t":"D","h":"","a":["PP"],"n":"","f":"AA","m":false},{"d":"2026-06-22","w":"Seg","t":"Ú","h":"","a":["PP"],"n":"MR","f":"","m":false},{"d":"2026-06-23","w":"Ter","t":"Ú","h":"","a":["PP","AA"],"n":"AM","f":"","m":true},{"d":"2026-06-24","w":"Qua","t":"F","h":"São João (Porto/Gaia)","a":["PP","AA"],"n":"","f":"MR","m":true},{"d":"2026-06-25","w":"Qui","t":"Ú","h":"","a":["PP","AA"],"n":"AM","f":"","m":true},{"d":"2026-06-26","w":"Sex","t":"Ú","h":"","a":["PP","AA"],"n":"MR","f":"","m":true},{"d":"2026-06-27","w":"Sáb","t":"S","h":"","a":["PP","AA"],"n":"","f":"AM","m":true},{"d":"2026-06-28","w":"Dom","t":"D","h":"","a":["PP","AA"],"n":"","f":"SC","m":true},{"d":"2026-06-29","w":"Seg","t":"Ú","h":"","a":["AA"],"n":"PP","f":"","m":false},{"d":"2026-06-30","w":"Ter","t":"Ú","h":"","a":["AA"],"n":"AM","f":"","m":false},{"d":"2026-07-01","w":"Qua","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-07-02","w":"Qui","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-07-03","w":"Sex","t":"Ú","h":"","a":["AA"],"n":"PP","f":"","m":false},{"d":"2026-07-04","w":"Sáb","t":"S","h":"","a":["AA","AM"],"n":"","f":"PP","m":true},{"d":"2026-07-05","w":"Dom","t":"D","h":"","a":["AA","AM"],"n":"","f":"PP","m":true},{"d":"2026-07-06","w":"Seg","t":"Ú","h":"","a":["AA","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-07","w":"Ter","t":"Ú","h":"","a":["MR","AA","AM"],"n":"MQR","f":"","m":true},{"d":"2026-07-08","w":"Qua","t":"Ú","h":"","a":["AA","AM"],"n":"MR","f":"","m":true},{"d":"2026-07-09","w":"Qui","t":"Ú","h":"","a":["AA","AM","MQR"],"n":"MR","f":"","m":true},{"d":"2026-07-10","w":"Sex","t":"Ú","h":"","a":["AA","AM","MQR"],"n":"14-20MQR;20-08 MR","f":"","m":true},{"d":"2026-07-11","w":"Sáb","t":"S","h":"","a":["AA","AM","MQR"],"n":"","f":"MQR","m":true},{"d":"2026-07-12","w":"Dom","t":"D","h":"","a":["AA","AM","MQR"],"n":"","f":"MR","m":true},{"d":"2026-07-13","w":"Seg","t":"Ú","h":"","a":["SC","AA","AM","MQR"],"n":"PP","f":"","m":true},{"d":"2026-07-14","w":"Ter","t":"Ú","h":"","a":["SC","AA","AM","MQR"],"n":"MR","f":"","m":true},{"d":"2026-07-15","w":"Qua","t":"Ú","h":"","a":["SC","AA","AM","MQR"],"n":"MR","f":"","m":true},{"d":"2026-07-16","w":"Qui","t":"Ú","h":"","a":["SC","AA","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-17","w":"Sex","t":"Ú","h":"","a":["SC","AA","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-18","w":"Sáb","t":"S","h":"","a":["SC","AA","AM"],"n":"","f":"PP","m":true},{"d":"2026-07-19","w":"Dom","t":"D","h":"","a":["SC","AA","AM"],"n":"","f":"MR","m":true},{"d":"2026-07-20","w":"Seg","t":"Ú","h":"","a":["AA","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-21","w":"Ter","t":"Ú","h":"","a":["AA","AM"],"n":"SC","f":"","m":true},{"d":"2026-07-22","w":"Qua","t":"Ú","h":"","a":["AA","AM"],"n":"MR","f":"","m":true},{"d":"2026-07-23","w":"Qui","t":"Ú","h":"","a":["AM"],"n":"AA","f":"","m":false},{"d":"2026-07-24","w":"Sex","t":"Ú","h":"","a":["AM"],"n":"MR","f":"","m":false},{"d":"2026-07-25","w":"Sáb","t":"S","h":"","a":["AM"],"n":"","f":"SC","m":false},{"d":"2026-07-26","w":"Dom","t":"D","h":"","a":["AM"],"n":"","f":"AA","m":false},{"d":"2026-07-27","w":"Seg","t":"Ú","h":"","a":["MR","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-28","w":"Ter","t":"Ú","h":"","a":["MR","AM"],"n":"SC","f":"","m":true},{"d":"2026-07-29","w":"Qua","t":"Ú","h":"","a":["MR","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-30","w":"Qui","t":"Ú","h":"","a":["MR","AM"],"n":"AA","f":"","m":true},{"d":"2026-07-31","w":"Sex","t":"Ú","h":"","a":["MR","AM"],"n":"PP","f":"","m":true},{"d":"2026-08-01","w":"Sáb","t":"S","h":"","a":["MR","AM"],"n":"","f":"PP","m":true},{"d":"2026-08-02","w":"Dom","t":"D","h":"","a":["MR","AM"],"n":"","f":"PP","m":true},{"d":"2026-08-03","w":"Seg","t":"Ú","h":"","a":["MR"],"n":"PP","f":"","m":false},{"d":"2026-08-04","w":"Ter","t":"Ú","h":"","a":["MR"],"n":"AM","f":"","m":false},{"d":"2026-08-05","w":"Qua","t":"Ú","h":"","a":["MR"],"n":"MR","f":"","m":false},{"d":"2026-08-06","w":"Qui","t":"Ú","h":"","a":["MR"],"n":"AA","f":"","m":false},{"d":"2026-08-07","w":"Sex","t":"Ú","h":"","a":["MR"],"n":"MQR","f":"","m":false},{"d":"2026-08-08","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"MQR","m":false},{"d":"2026-08-09","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"SC","m":false},{"d":"2026-08-10","w":"Seg","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-08-11","w":"Ter","t":"Ú","h":"","a":["SC"],"n":"AM","f":"","m":false},{"d":"2026-08-12","w":"Qua","t":"Ú","h":"","a":["SC"],"n":"MR","f":"","m":false},{"d":"2026-08-13","w":"Qui","t":"Ú","h":"","a":["SC","MQR"],"n":"AA","f":"","m":true},{"d":"2026-08-14","w":"Sex","t":"Ú","h":"","a":["SC","MQR"],"n":"AA","f":"","m":true},{"d":"2026-08-15","w":"Sáb","t":"F","h":"Assunção","a":["SC"],"n":"","f":"AA","m":false},{"d":"2026-08-16","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"AA","m":false},{"d":"2026-08-17","w":"Seg","t":"Ú","h":"","a":["SC","MQR"],"n":"PP","f":"","m":true},{"d":"2026-08-18","w":"Ter","t":"Ú","h":"","a":["SC","MQR"],"n":"AM","f":"","m":true},{"d":"2026-08-19","w":"Qua","t":"Ú","h":"","a":["SC","MQR"],"n":"MR","f":"","m":true},{"d":"2026-08-20","w":"Qui","t":"Ú","h":"","a":["SC","MQR"],"n":"AA","f":"","m":true},{"d":"2026-08-21","w":"Sex","t":"Ú","h":"","a":["SC","MQR"],"n":"MR","f":"","m":true},{"d":"2026-08-22","w":"Sáb","t":"S","h":"","a":["SC","MQR"],"n":"","f":"MR","m":true},{"d":"2026-08-23","w":"Dom","t":"D","h":"","a":["SC","MQR"],"n":"","f":"MR","m":true},{"d":"2026-08-24","w":"Seg","t":"Ú","h":"","a":["MR","MQR"],"n":"PP","f":"","m":true},{"d":"2026-08-25","w":"Ter","t":"Ú","h":"","a":["MR","MQR"],"n":"AM","f":"","m":true},{"d":"2026-08-26","w":"Qua","t":"Ú","h":"","a":["MR","MQR"],"n":"MR","f":"","m":true},{"d":"2026-08-27","w":"Qui","t":"Ú","h":"","a":["MR","MQR"],"n":"AA","f":"","m":true},{"d":"2026-08-28","w":"Sex","t":"Ú","h":"","a":["MR","MQR"],"n":"PP","f":"","m":true},{"d":"2026-08-29","w":"Sáb","t":"S","h":"","a":["MR","MQR"],"n":"","f":"PP","m":true},{"d":"2026-08-30","w":"Dom","t":"D","h":"","a":["MQR"],"n":"","f":"PP","m":false},{"d":"2026-08-31","w":"Seg","t":"Ú","h":"","a":["MQR"],"n":"PP","f":"","m":false},{"d":"2026-09-01","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-02","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-03","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-04","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-09-05","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-09-06","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-09-07","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-09-08","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-09","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-10","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-11","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-12","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-09-13","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-09-14","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-09-15","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-16","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-17","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-18","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-19","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-09-20","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-09-21","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-09-22","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-23","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-24","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-25","w":"Sex","t":"Ú","h":"","a":["MR"],"n":"AA","f":"","m":false},{"d":"2026-09-26","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-09-27","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-09-28","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-09-29","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-30","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-01","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-02","w":"Sex","t":"Ú","h":"","a":["MR"],"n":"MQR","f":"","m":false},{"d":"2026-10-03","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-10-04","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-10-05","w":"Seg","t":"F","h":"Implantação da República","a":[],"n":"","f":"PP","m":false},{"d":"2026-10-06","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-10-07","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-08","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-09","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-10","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-10-11","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-10-12","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-10-13","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-10-14","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-15","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-16","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-17","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-10-18","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-10-19","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-10-20","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-10-21","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-22","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-23","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-10-24","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-10-25","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-10-26","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-10-27","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-10-28","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-29","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-30","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-10-31","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-11-01","w":"Dom","t":"F","h":"Todos os Santos","a":[],"n":"","f":"SC","m":false},{"d":"2026-11-02","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-03","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-11-04","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-05","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-06","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-07","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-11-08","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-11-09","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-10","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-11-11","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-12","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-13","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-14","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-11-15","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-11-16","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-17","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-11-18","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-19","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-20","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-21","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-11-22","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-11-23","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-24","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-11-25","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-26","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-27","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-11-28","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-11-29","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-11-30","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-12-01","w":"Ter","t":"F","h":"Restauração da Independência","a":[],"n":"","f":"AM","m":false},{"d":"2026-12-02","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-12-03","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-12-04","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-12-05","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-12-06","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-12-07","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-12-08","w":"Ter","t":"F","h":"Imaculada Conceição","a":[],"n":"","f":"AM","m":false},{"d":"2026-12-09","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-12-10","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-12-11","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-12-12","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-12-13","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-12-14","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-12-15","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-12-16","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-12-17","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-12-18","w":"Sex","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-19","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-20","w":"Dom","t":"D","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-21","w":"Seg","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-22","w":"Ter","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-23","w":"Qua","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-24","w":"Qui","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-25","w":"Sex","t":"F","h":"Natal","a":[],"n":"","f":"","m":false},{"d":"2026-12-26","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-27","w":"Dom","t":"D","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-28","w":"Seg","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-29","w":"Ter","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-30","w":"Qua","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-31","w":"Qui","t":"Ú","h":"","a":[],"n":"","f":"","m":false}],"weekly":{"0":{"PP":[["8-14","UNIC"],["14-17","UNIC"],["17-20","UNIC"]],"AA":[["8-14","Angio"],["14-17","Angio"],["17-20","Consulta"]],"AM":[["8-14","Angio"]],"MQR":[["14-17","RM/Consulta"],["17-20","RM/Consulta"]]},"1":{"SC":[["8-14","Angio"],["14-17","UNIC"],["17-20","Gestão"]],"MR":[["8-14","Angio"]],"MQR":[["8-14","Gestão"]],"AA":[["14-17","AngioTAC"],["17-20","AngioTAC"]],"AM":[["8-14","UNIC"],["14-17","Angio"],["17-20","UNIC"]],"PP":[["14-17","RM"],["17-20","RM"]]},"2":{"SC":[["8-14","Angio"],["14-17","UNIC"],["17-20","Gestão"]],"MR":[["8-14","UNIC"],["14-17","UNIC/Angio"],["17-20","UNIC"]],"PP":[["8-14","Angio"],["14-17","Consulta"],["17-20","Consulta"]]},"3":{"SC":[["8-14","Angio"],["14-17","Gestão"],["17-20","Gestão"]],"MR":[["8-14","Angio"],["14-17","Consulta"]],"MQR":[["8-14","Gestão"],["14-17","UNIC"],["17-20","Consulta"]],"AA":[["8-14","UNIC"],["14-17","UNIC/Angio"],["17-20","UNIC"]],"AM":[["8-14","RM"],["14-17","Consulta"]]},"4":{"PP":[["8-14","Angio"]],"MR":[["8-14","Angio/UNIC"]],"AA":[["8-14","Consulta"]],"AM":[["14-17","Angio"]],"SC":[["8-14","Consulta"]],"MQR":[["8-14","Doppler"],["14-17","Gestão"],["17-20","Gestão"]]}},"names":{"MQR":"Manuel Ribeiro","SC":"Sérgio Castro","MR":"Marta Rodrigues","PP":"Pedro Pires","AA":"André Araújo","AM":"André Miranda"},"hasSched":{"0":["MQR","PP","AA","AM"],"1":["SC","MR","MQR","PP","AA","AM"],"2":["SC","MR","PP"],"3":["SC","MR","MQR","AA","AM"],"4":["SC","MR","MQR","PP","AA","AM"]},"colors":{"MR":{"bg":"#FCDDE9","text":"#831847","label":"rosa"},"SC":{"bg":"#C5E1FB","text":"#0D47A1","label":"azul"},"MQR":{"bg":"#FFF59D","text":"#5D4037","label":"amarelo"},"PP":{"bg":"#C8E6C9","text":"#1B5E20","label":"verde"},"AM":{"bg":"#FFCC80","text":"#BF360C","label":"laranja"},"AA":{"bg":"#D1C4E9","text":"#4A148C","label":"roxo"}},"subs":{"2026-05-26":[{"t":"AngioTAC","s":"AM","n":""},{"t":"RM","s":"SC","n":""}],"2026-05-28":[{"t":"UNIC","s":"MR","n":"AA ausente toda a UNIC 8-20"}],"2026-06-02":[{"t":"AngioTAC","s":"AM","n":""}],"2026-06-23":[{"t":"AngioTAC","s":"MR","n":""},{"t":"RM","s":"AM","n":""}]},"subsCount":6,"hash":"9f4fbe051baa85eb"};
+<!DOCTYPE html><html lang="pt-PT"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><title>Agenda NRI GAIA 2026</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafaf9;color:#1a1a1a;line-height:1.5;-webkit-text-size-adjust:100%}.wrap{max-width:1100px;margin:0 auto;padding:16px}.hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}.title{font-size:20px;font-weight:600;margin:0}.sub{font-size:13px;color:#666;margin-top:2px}.tabs{display:flex;gap:4px;background:#ededeb;padding:3px;border-radius:8px}.tab{padding:6px 12px;border-radius:6px;cursor:pointer;border:none;background:transparent;color:#666;font-size:13px}.tab.active{background:#fff;color:#1a1a1a;box-shadow:0 1px 2px rgba(0,0,0,0.05)}.year{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}@media(max-width:740px){.year{grid-template-columns:repeat(3,1fr)}}@media(max-width:540px){.year{grid-template-columns:repeat(2,1fr)}}@media(max-width:340px){.year{grid-template-columns:1fr}}.month{background:#fff;border:0.5px solid #e0ddd5;border-radius:10px;padding:8px}.mname{font-size:12px;font-weight:600;margin:0 0 4px;text-align:center}.mgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}.mhdr{font-size:9px;text-align:center;color:#888;padding:1px 0}.d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:11px;border-radius:3px;cursor:pointer;background:#f4f3ef;color:#1a1a1a;border:0.5px solid transparent;user-select:none;-webkit-tap-highlight-color:transparent;font-weight:500;position:relative}.d.empty{background:transparent;cursor:default}.d.weekend{background:#ededeb;color:#666}.d.holiday{background:#FFE0B2;color:#8B4513}.d.today{outline:2px solid #185fa5;outline-offset:-1px}.d.selected{outline:3px solid #185fa5;outline-offset:-2px;font-weight:700}.d .subdot{position:absolute;top:1px;right:2px;width:5px;height:5px;border-radius:50%;background:#2E7D32}.lg{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:#666;margin-top:12px;justify-content:center}.lg span{display:flex;align-items:center;gap:4px;padding:2px 6px;border-radius:4px}.det{margin-top:14px;background:#fff;border:0.5px solid #e0ddd5;border-radius:10px;padding:14px 16px;display:none}.det.show{display:block}.dhd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}.ddt{font-size:16px;font-weight:600;margin:0}.dmt{font-size:12px;color:#666}.drw{display:flex;gap:8px;align-items:flex-start;margin:8px 0;font-size:13px;flex-wrap:wrap}.dlb{min-width:100px;color:#666;font-size:12px}.pl{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;margin-right:4px;margin-bottom:4px;font-weight:500}.pl.absnc{background:#ededeb;color:#666}.pl.esc{background:#e1f5ee;color:#085041}.pl.warn{background:#faeeda;color:#854f0b}.uncov{margin-top:8px;padding:10px;background:#fcebeb;border-radius:6px;font-size:12px;color:#501313}.uctt{font-weight:600;color:#791f1f;margin-bottom:6px}.uncov ul{margin:0;padding-left:18px}.uncov li{margin:2px 0}.subarr{display:inline-block;margin-left:8px;padding:1px 6px;background:#2E7D32;color:#fff;border-radius:8px;font-weight:600;font-size:11px}.nightcov{margin-top:10px;padding:6px 10px;background:#e1f5ee;color:#04342c;border-radius:6px;font-size:12px;border-left:3px solid #2E7D32}.partial{margin-top:8px;padding:10px;background:#fff3e0;border-radius:6px;font-size:12px;color:#6d3a00;border-left:3px solid #FF9800}.ptt{font-weight:600;color:#bf5500;margin-bottom:6px}.partial ul{margin:0;padding-left:18px}.partial li{margin:2px 0}.drw.conflict{background:#fcebeb;border-radius:6px;padding:8px 10px;border-left:4px solid #c0392b}.drw.conflict .dlb{color:#791f1f;font-weight:600}.pl.bad{background:#c0392b;color:#fff;font-weight:700}.subextra{margin-top:8px;padding:10px;background:#e8f5e9;border-radius:6px;font-size:12px;color:#1b5e20}.subextt{font-weight:600;color:#1b5e20;margin-bottom:6px}.subextra ul{margin:0;padding-left:18px}.subextra li{margin:2px 0}.ok{margin-top:8px;padding:10px;background:#e1f5ee;border-radius:6px;font-size:12px;color:#04342c}.byp{display:none}.byp.show{display:block}.al{background:#fcebeb;border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:13px;color:#501313}.al strong{color:#791f1f;font-weight:600;display:block;margin-bottom:2px}.ft{margin-top:18px;padding-top:12px;border-top:0.5px solid #e0ddd5;font-size:11px;color:#888;text-align:center}@media(prefers-color-scheme:dark){body{background:#0f0f0f;color:#e5e5e5}.month,.det{background:#1a1a1a;border-color:#333}.d{background:#262626;color:#e5e5e5}.d.weekend{background:#1f1f1f;color:#888}.tab.active{background:#262626;color:#fff}.ft{border-color:#333}.ddt,.title{color:#fff}.subextra{background:#1b3a1f;color:#c8e6c9}}@media(pointer:coarse) and (max-width:740px){.det.show{touch-action:pan-y;transition:transform .15s ease,opacity .15s ease}.det.show::before{content:"← deslize para mudar de dia →";display:block;text-align:center;font-size:11px;color:#999;margin:-4px 0 10px;opacity:.75;font-weight:500;letter-spacing:.2px}@media(prefers-color-scheme:dark){.det.show::before{color:#777}}}.todaybtn{padding:6px 12px;border-radius:6px;border:0.5px solid #185fa5;background:#fff;color:#185fa5;font-size:13px;cursor:pointer;font-weight:500;-webkit-tap-highlight-color:transparent;font-family:inherit}.todaybtn:hover{background:#185fa5;color:#fff}.todaybtn:active{transform:scale(.97)}@media(prefers-color-scheme:dark){.todaybtn{background:#1a1a1a;color:#7eb6ff;border-color:#7eb6ff}.todaybtn:hover{background:#185fa5;color:#fff;border-color:#185fa5}}</style></head><body><div class="wrap"><div class="hdr"><div><p class="title">Agenda NRI GAIA 2026</p><p class="sub">365 dias · 6 elementos · cores por médico</p></div><button class="todaybtn" id="btn-today" title="Ir para hoje">Hoje</button><div class="tabs"><button class="tab active" data-view="cal">Calendário</button><button class="tab" data-view="alert">Alertas</button><button class="tab" data-view="subs">Substituições</button><button class="tab" data-view="overlap">Sobreposições</button></div></div><div id="view-cal"><div class="year" id="year"></div><div class="lg" id="legend"></div><div class="det" id="det"></div></div><div class="byp" id="view-alert"></div><div class="byp" id="view-subs"></div><div class="byp" id="view-overlap"></div><div class="ft">ESCALA 2026.xlsx · Substitutos via Agenda_NRI_2026.xlsx</div></div><script>
+const NRI={"year":2026,"days":[{"d":"2026-01-01","w":"Qui","t":"F","h":"Ano Novo","a":[],"n":"","f":"MR","m":false},{"d":"2026-01-02","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-01-03","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-01-04","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-01-05","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-01-06","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-01-07","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-08","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-01-09","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-10","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-01-11","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-01-12","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-01-13","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-01-14","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-15","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-01-16","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-01-17","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-01-18","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-01-19","w":"Seg","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-01-20","w":"Ter","t":"Ú","h":"","a":["SC"],"n":"AM","f":"","m":false},{"d":"2026-01-21","w":"Qua","t":"Ú","h":"","a":["SC"],"n":"MR","f":"","m":false},{"d":"2026-01-22","w":"Qui","t":"Ú","h":"","a":["SC"],"n":"AA","f":"","m":false},{"d":"2026-01-23","w":"Sex","t":"Ú","h":"","a":["SC"],"n":"14-20 PP; 20-08 MR","f":"","m":false},{"d":"2026-01-24","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"MQR","m":false},{"d":"2026-01-25","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-01-26","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-01-27","w":"Ter","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-01-28","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-29","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-01-30","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-01-31","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-02-01","w":"Dom","t":"D","h":"","a":[],"n":"","f":"08-00h- MR; 00-08 PP","m":false},{"d":"2026-02-02","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-02-03","w":"Ter","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-04","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-02-05","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-06","w":"Sex","t":"Ú","h":"","a":[],"n":"14-20 - MQR; 20-08 MR","f":"","m":false},{"d":"2026-02-07","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"08-20 SC; 20-08 PP","m":false},{"d":"2026-02-08","w":"Dom","t":"D","h":"","a":[],"n":"","f":".08-20 SC; 20-08 MR","m":false},{"d":"2026-02-09","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-02-10","w":"Ter","t":"Ú","h":"","a":["MR"],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-11","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-02-12","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-13","w":"Sex","t":"Ú","h":"","a":[],"n":"14-20 PP; 20-08 MR","f":"","m":false},{"d":"2026-02-14","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"8-20 MR; 20-8 PP","m":false},{"d":"2026-02-15","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"MQR","m":false},{"d":"2026-02-16","w":"Seg","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-02-17","w":"Ter","t":"Ú","h":"","a":["SC"],"n":"MQR+AM","f":"","m":false},{"d":"2026-02-18","w":"Qua","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-02-19","w":"Qui","t":"Ú","h":"","a":["SC"],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-20","w":"Sex","t":"Ú","h":"","a":["SC"],"n":"14-20 - MQR; 20-08 MR","f":"","m":false},{"d":"2026-02-21","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-02-22","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-02-23","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-02-24","w":"Ter","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-25","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-02-26","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-02-27","w":"Sex","t":"Ú","h":"","a":[],"n":"14-20h PP; 20-08h MR","f":"","m":false},{"d":"2026-02-28","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"08-20h MR; 20-08h PP","m":false},{"d":"2026-03-01","w":"Dom","t":"D","h":"","a":[],"n":"","f":"08-16 SC; 16-20 PP; 20-08 MR","m":false},{"d":"2026-03-02","w":"Seg","t":"Ú","h":"","a":["AM"],"n":"PP","f":"","m":false},{"d":"2026-03-03","w":"Ter","t":"Ú","h":"","a":["AM"],"n":"MR","f":"","m":false},{"d":"2026-03-04","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-05","w":"Qui","t":"Ú","h":"","a":[],"n":"AM+MQR","f":"","m":false},{"d":"2026-03-06","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-03-07","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-03-08","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-03-09","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-03-10","w":"Ter","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-03-11","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-12","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-03-13","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-14","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-03-15","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-03-16","w":"Seg","t":"Ú","h":"","a":[],"n":"PP 08h-14h; AA 14h-08h","f":"","m":false},{"d":"2026-03-17","w":"Ter","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-03-18","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-19","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-03-20","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR 14h-20h ; AA 20-08h","f":"","m":false},{"d":"2026-03-21","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-03-22","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-03-23","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-03-24","w":"Ter","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-03-25","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-03-26","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-03-27","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-03-28","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-03-29","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-03-30","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-03-31","w":"Ter","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-04-01","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-04-02","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-04-03","w":"Sex","t":"F","h":"Sexta-feira Santa","a":[],"n":"","f":"08-20h PP; 20-00h; 00-08h PP","m":false},{"d":"2026-04-04","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"PP","m":false},{"d":"2026-04-05","w":"Dom","t":"F","h":"Páscoa","a":["SC"],"n":"","f":"MR","m":false},{"d":"2026-04-06","w":"Seg","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-04-07","w":"Ter","t":"Ú","h":"","a":["SC"],"n":"AM","f":"","m":false},{"d":"2026-04-08","w":"Qua","t":"Ú","h":"","a":["PP","SC"],"n":"MR","f":"","m":true},{"d":"2026-04-09","w":"Qui","t":"Ú","h":"","a":["PP","SC"],"n":"AA","f":"","m":true},{"d":"2026-04-10","w":"Sex","t":"Ú","h":"","a":["PP","SC"],"n":"MR","f":"","m":true},{"d":"2026-04-11","w":"Sáb","t":"S","h":"","a":["PP","SC"],"n":"","f":"AA","m":true},{"d":"2026-04-12","w":"Dom","t":"D","h":"","a":["PP","SC"],"n":"","f":"MR","m":true},{"d":"2026-04-13","w":"Seg","t":"Ú","h":"","a":["PP"],"n":"AA","f":"","m":false},{"d":"2026-04-14","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-04-15","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-04-16","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-04-17","w":"Sex","t":"Ú","h":"","a":[],"n":"14-08 AM","f":"","m":false},{"d":"2026-04-18","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"08-20 MQR; 20-08 AA","m":false},{"d":"2026-04-19","w":"Dom","t":"D","h":"","a":[],"n":"","f":"08-18 SC; 18-08 AM","m":false},{"d":"2026-04-20","w":"Seg","t":"Ú","h":"","a":["PP"],"n":"MR","f":"","m":false},{"d":"2026-04-21","w":"Ter","t":"Ú","h":"","a":["PP"],"n":"AM","f":"","m":false},{"d":"2026-04-22","w":"Qua","t":"Ú","h":"","a":["PP"],"n":"MR","f":"","m":false},{"d":"2026-04-23","w":"Qui","t":"Ú","h":"","a":["PP"],"n":"AA","f":"","m":false},{"d":"2026-04-24","w":"Sex","t":"Ú","h":"","a":["PP"],"n":"AA","f":"","m":false},{"d":"2026-04-25","w":"Sáb","t":"F","h":"Dia da Liberdade","a":["PP"],"n":"","f":"AA","m":false},{"d":"2026-04-26","w":"Dom","t":"D","h":"","a":["PP"],"n":"","f":"AA","m":false},{"d":"2026-04-27","w":"Seg","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-04-28","w":"Ter","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-04-29","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-04-30","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-05-01","w":"Sex","t":"F","h":"Dia do Trabalhador","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-02","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-03","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-04","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-05-05","w":"Ter","t":"Ú","h":"","a":["PP"],"n":"AM","f":"","m":false},{"d":"2026-05-06","w":"Qua","t":"Ú","h":"","a":["MR","PP"],"n":"AA","f":"","m":true},{"d":"2026-05-07","w":"Qui","t":"Ú","h":"","a":["MR"],"n":"AA","f":"","m":false},{"d":"2026-05-08","w":"Sex","t":"Ú","h":"","a":["MR"],"n":"AA","f":"","m":false},{"d":"2026-05-09","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-05-10","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-05-11","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-05-12","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-05-13","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-05-14","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-05-15","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-05-16","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-05-17","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-18","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-05-19","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-05-20","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-05-21","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-05-22","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-05-23","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-05-24","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AM","m":false},{"d":"2026-05-25","w":"Seg","t":"Ú","h":"","a":["PP","AA"],"n":"AM","f":"","m":true},{"d":"2026-05-26","w":"Ter","t":"Ú","h":"","a":["PP","AA"],"n":"MR","f":"","m":true},{"d":"2026-05-27","w":"Qua","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-05-28","w":"Qui","t":"Ú","h":"","a":["AA"],"n":"PP","f":"","m":false},{"d":"2026-05-29","w":"Sex","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-05-30","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-05-31","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-06-01","w":"Seg","t":"Ú","h":"","a":["AA"],"n":"PP","f":"","m":false},{"d":"2026-06-02","w":"Ter","t":"Ú","h":"","a":["AA"],"n":"AM","f":"","m":false},{"d":"2026-06-03","w":"Qua","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-06-04","w":"Qui","t":"F","h":"Corpo de Deus","a":[],"n":"","f":"AA","m":false},{"d":"2026-06-05","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-06-06","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"08-20 MQR; 20-08 MR","m":false},{"d":"2026-06-07","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-06-08","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-06-09","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-06-10","w":"Qua","t":"F","h":"Dia de Portugal","a":[],"n":"","f":"MR","m":false},{"d":"2026-06-11","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-06-12","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-06-13","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-06-14","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-06-15","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-06-16","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-06-17","w":"Qua","t":"Ú","h":"","a":["SC"],"n":"MR","f":"","m":false},{"d":"2026-06-18","w":"Qui","t":"Ú","h":"","a":["SC"],"n":"AA","f":"","m":false},{"d":"2026-06-19","w":"Sex","t":"Ú","h":"","a":["SC","PP"],"n":"AA","f":"","m":true},{"d":"2026-06-20","w":"Sáb","t":"S","h":"","a":["PP"],"n":"","f":"AA","m":false},{"d":"2026-06-21","w":"Dom","t":"D","h":"","a":["PP"],"n":"","f":"AA","m":false},{"d":"2026-06-22","w":"Seg","t":"Ú","h":"","a":["PP"],"n":"MR","f":"","m":false},{"d":"2026-06-23","w":"Ter","t":"Ú","h":"","a":["PP","AA"],"n":"AM","f":"","m":true},{"d":"2026-06-24","w":"Qua","t":"F","h":"São João (Porto/Gaia)","a":["PP","AA"],"n":"","f":"MR","m":true},{"d":"2026-06-25","w":"Qui","t":"Ú","h":"","a":["PP","AA"],"n":"AM","f":"","m":true},{"d":"2026-06-26","w":"Sex","t":"Ú","h":"","a":["PP","AA"],"n":"MR","f":"","m":true},{"d":"2026-06-27","w":"Sáb","t":"S","h":"","a":["PP","AA"],"n":"","f":"AM","m":true},{"d":"2026-06-28","w":"Dom","t":"D","h":"","a":["PP","AA"],"n":"","f":"SC","m":true},{"d":"2026-06-29","w":"Seg","t":"Ú","h":"","a":["AA"],"n":"PP","f":"","m":false},{"d":"2026-06-30","w":"Ter","t":"Ú","h":"","a":["AA"],"n":"AM","f":"","m":false},{"d":"2026-07-01","w":"Qua","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-07-02","w":"Qui","t":"Ú","h":"","a":["AA"],"n":"MR","f":"","m":false},{"d":"2026-07-03","w":"Sex","t":"Ú","h":"","a":["AA"],"n":"PP","f":"","m":false},{"d":"2026-07-04","w":"Sáb","t":"S","h":"","a":["AA","AM"],"n":"","f":"PP","m":true},{"d":"2026-07-05","w":"Dom","t":"D","h":"","a":["AA","AM"],"n":"","f":"PP","m":true},{"d":"2026-07-06","w":"Seg","t":"Ú","h":"","a":["AA","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-07","w":"Ter","t":"Ú","h":"","a":["MR","AA","AM"],"n":"MQR","f":"","m":true},{"d":"2026-07-08","w":"Qua","t":"Ú","h":"","a":["AA","AM"],"n":"MR","f":"","m":true},{"d":"2026-07-09","w":"Qui","t":"Ú","h":"","a":["AA","AM","MQR"],"n":"MR","f":"","m":true},{"d":"2026-07-10","w":"Sex","t":"Ú","h":"","a":["AA","AM","MQR"],"n":"14-20MQR;20-08 MR","f":"","m":true},{"d":"2026-07-11","w":"Sáb","t":"S","h":"","a":["AA","AM","MQR"],"n":"","f":"MQR","m":true},{"d":"2026-07-12","w":"Dom","t":"D","h":"","a":["AA","AM","MQR"],"n":"","f":"MR","m":true},{"d":"2026-07-13","w":"Seg","t":"Ú","h":"","a":["SC","AA","AM","MQR"],"n":"PP","f":"","m":true},{"d":"2026-07-14","w":"Ter","t":"Ú","h":"","a":["SC","AA","AM","MQR"],"n":"MR","f":"","m":true},{"d":"2026-07-15","w":"Qua","t":"Ú","h":"","a":["SC","AA","AM","MQR"],"n":"MR","f":"","m":true},{"d":"2026-07-16","w":"Qui","t":"Ú","h":"","a":["SC","AA","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-17","w":"Sex","t":"Ú","h":"","a":["SC","AA","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-18","w":"Sáb","t":"S","h":"","a":["SC","AA","AM"],"n":"","f":"PP","m":true},{"d":"2026-07-19","w":"Dom","t":"D","h":"","a":["SC","AA","AM"],"n":"","f":"MR","m":true},{"d":"2026-07-20","w":"Seg","t":"Ú","h":"","a":["AA","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-21","w":"Ter","t":"Ú","h":"","a":["AA","AM"],"n":"SC","f":"","m":true},{"d":"2026-07-22","w":"Qua","t":"Ú","h":"","a":["AA","AM"],"n":"MR","f":"","m":true},{"d":"2026-07-23","w":"Qui","t":"Ú","h":"","a":["AM"],"n":"AA","f":"","m":false},{"d":"2026-07-24","w":"Sex","t":"Ú","h":"","a":["AM"],"n":"MR","f":"","m":false},{"d":"2026-07-25","w":"Sáb","t":"S","h":"","a":["AM"],"n":"","f":"SC","m":false},{"d":"2026-07-26","w":"Dom","t":"D","h":"","a":["AM"],"n":"","f":"AA","m":false},{"d":"2026-07-27","w":"Seg","t":"Ú","h":"","a":["MR","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-28","w":"Ter","t":"Ú","h":"","a":["MR","AM"],"n":"SC","f":"","m":true},{"d":"2026-07-29","w":"Qua","t":"Ú","h":"","a":["MR","AM"],"n":"PP","f":"","m":true},{"d":"2026-07-30","w":"Qui","t":"Ú","h":"","a":["MR","AM"],"n":"AA","f":"","m":true},{"d":"2026-07-31","w":"Sex","t":"Ú","h":"","a":["MR","AM"],"n":"PP","f":"","m":true},{"d":"2026-08-01","w":"Sáb","t":"S","h":"","a":["MR","AM"],"n":"","f":"PP","m":true},{"d":"2026-08-02","w":"Dom","t":"D","h":"","a":["MR","AM"],"n":"","f":"PP","m":true},{"d":"2026-08-03","w":"Seg","t":"Ú","h":"","a":["MR"],"n":"PP","f":"","m":false},{"d":"2026-08-04","w":"Ter","t":"Ú","h":"","a":["MR"],"n":"AM","f":"","m":false},{"d":"2026-08-05","w":"Qua","t":"Ú","h":"","a":["MR"],"n":"MR","f":"","m":false},{"d":"2026-08-06","w":"Qui","t":"Ú","h":"","a":["MR"],"n":"AA","f":"","m":false},{"d":"2026-08-07","w":"Sex","t":"Ú","h":"","a":["MR"],"n":"MQR","f":"","m":false},{"d":"2026-08-08","w":"Sáb","t":"S","h":"","a":["SC"],"n":"","f":"MQR","m":false},{"d":"2026-08-09","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"SC","m":false},{"d":"2026-08-10","w":"Seg","t":"Ú","h":"","a":["SC"],"n":"PP","f":"","m":false},{"d":"2026-08-11","w":"Ter","t":"Ú","h":"","a":["SC"],"n":"AM","f":"","m":false},{"d":"2026-08-12","w":"Qua","t":"Ú","h":"","a":["SC"],"n":"MR","f":"","m":false},{"d":"2026-08-13","w":"Qui","t":"Ú","h":"","a":["SC","MQR"],"n":"AA","f":"","m":true},{"d":"2026-08-14","w":"Sex","t":"Ú","h":"","a":["SC","MQR"],"n":"AA","f":"","m":true},{"d":"2026-08-15","w":"Sáb","t":"F","h":"Assunção","a":["SC"],"n":"","f":"AA","m":false},{"d":"2026-08-16","w":"Dom","t":"D","h":"","a":["SC"],"n":"","f":"AA","m":false},{"d":"2026-08-17","w":"Seg","t":"Ú","h":"","a":["SC","MQR"],"n":"PP","f":"","m":true},{"d":"2026-08-18","w":"Ter","t":"Ú","h":"","a":["SC","MQR"],"n":"AM","f":"","m":true},{"d":"2026-08-19","w":"Qua","t":"Ú","h":"","a":["SC","MQR"],"n":"MR","f":"","m":true},{"d":"2026-08-20","w":"Qui","t":"Ú","h":"","a":["SC","MQR"],"n":"AA","f":"","m":true},{"d":"2026-08-21","w":"Sex","t":"Ú","h":"","a":["SC","MQR"],"n":"MR","f":"","m":true},{"d":"2026-08-22","w":"Sáb","t":"S","h":"","a":["SC","MQR"],"n":"","f":"MR","m":true},{"d":"2026-08-23","w":"Dom","t":"D","h":"","a":["SC","MQR"],"n":"","f":"MR","m":true},{"d":"2026-08-24","w":"Seg","t":"Ú","h":"","a":["MR","MQR"],"n":"PP","f":"","m":true},{"d":"2026-08-25","w":"Ter","t":"Ú","h":"","a":["MR","MQR"],"n":"AM","f":"","m":true},{"d":"2026-08-26","w":"Qua","t":"Ú","h":"","a":["MR","MQR"],"n":"MR","f":"","m":true},{"d":"2026-08-27","w":"Qui","t":"Ú","h":"","a":["MR","MQR"],"n":"AA","f":"","m":true},{"d":"2026-08-28","w":"Sex","t":"Ú","h":"","a":["MR","MQR"],"n":"PP","f":"","m":true},{"d":"2026-08-29","w":"Sáb","t":"S","h":"","a":["MR","MQR"],"n":"","f":"PP","m":true},{"d":"2026-08-30","w":"Dom","t":"D","h":"","a":["MQR"],"n":"","f":"PP","m":false},{"d":"2026-08-31","w":"Seg","t":"Ú","h":"","a":["MQR"],"n":"PP","f":"","m":false},{"d":"2026-09-01","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-02","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-03","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-04","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-09-05","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-09-06","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-09-07","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-09-08","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-09","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-10","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-11","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-12","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-09-13","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-09-14","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-09-15","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-16","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-17","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-18","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-19","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-09-20","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-09-21","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-09-22","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-23","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-09-24","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-09-25","w":"Sex","t":"Ú","h":"","a":["MR"],"n":"AA","f":"","m":false},{"d":"2026-09-26","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-09-27","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-09-28","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-09-29","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-09-30","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-01","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-02","w":"Sex","t":"Ú","h":"","a":["MR"],"n":"MQR","f":"","m":false},{"d":"2026-10-03","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-10-04","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-10-05","w":"Seg","t":"F","h":"Implantação da República","a":[],"n":"","f":"PP","m":false},{"d":"2026-10-06","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-10-07","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-08","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-09","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-10","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-10-11","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-10-12","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-10-13","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-10-14","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-15","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-16","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-17","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-10-18","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-10-19","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-10-20","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-10-21","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-22","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-23","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-10-24","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-10-25","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-10-26","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-10-27","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-10-28","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-10-29","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-10-30","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-10-31","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-11-01","w":"Dom","t":"F","h":"Todos os Santos","a":[],"n":"","f":"SC","m":false},{"d":"2026-11-02","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-03","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-11-04","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-05","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-06","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-07","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-11-08","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-11-09","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-10","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-11-11","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-12","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-13","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-14","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-11-15","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-11-16","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-17","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-11-18","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-19","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-20","w":"Sex","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-21","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-11-22","w":"Dom","t":"D","h":"","a":[],"n":"","f":"PP","m":false},{"d":"2026-11-23","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-11-24","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-11-25","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-11-26","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-11-27","w":"Sex","t":"Ú","h":"","a":[],"n":"MQR","f":"","m":false},{"d":"2026-11-28","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MQR","m":false},{"d":"2026-11-29","w":"Dom","t":"D","h":"","a":[],"n":"","f":"SC","m":false},{"d":"2026-11-30","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-12-01","w":"Ter","t":"F","h":"Restauração da Independência","a":[],"n":"","f":"AM","m":false},{"d":"2026-12-02","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-12-03","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-12-04","w":"Sex","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-12-05","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-12-06","w":"Dom","t":"D","h":"","a":[],"n":"","f":"AA","m":false},{"d":"2026-12-07","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-12-08","w":"Ter","t":"F","h":"Imaculada Conceição","a":[],"n":"","f":"AM","m":false},{"d":"2026-12-09","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-12-10","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-12-11","w":"Sex","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-12-12","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-12-13","w":"Dom","t":"D","h":"","a":[],"n":"","f":"MR","m":false},{"d":"2026-12-14","w":"Seg","t":"Ú","h":"","a":[],"n":"PP","f":"","m":false},{"d":"2026-12-15","w":"Ter","t":"Ú","h":"","a":[],"n":"AM","f":"","m":false},{"d":"2026-12-16","w":"Qua","t":"Ú","h":"","a":[],"n":"MR","f":"","m":false},{"d":"2026-12-17","w":"Qui","t":"Ú","h":"","a":[],"n":"AA","f":"","m":false},{"d":"2026-12-18","w":"Sex","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-19","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-20","w":"Dom","t":"D","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-21","w":"Seg","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-22","w":"Ter","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-23","w":"Qua","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-24","w":"Qui","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-25","w":"Sex","t":"F","h":"Natal","a":[],"n":"","f":"","m":false},{"d":"2026-12-26","w":"Sáb","t":"S","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-27","w":"Dom","t":"D","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-28","w":"Seg","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-29","w":"Ter","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-30","w":"Qua","t":"Ú","h":"","a":[],"n":"","f":"","m":false},{"d":"2026-12-31","w":"Qui","t":"Ú","h":"","a":[],"n":"","f":"","m":false}],"weekly":{"0":{"PP":[["8-14","UNIC"],["14-17","UNIC"],["17-20","UNIC"]],"AA":[["8-14","Angio"],["14-17","Angio"],["17-20","Consulta"]],"AM":[["8-14","Angio"]],"MQR":[["14-17","RM/Consulta"],["17-20","RM/Consulta"]]},"1":{"SC":[["8-14","Angio"],["14-17","UNIC"],["17-20","Gestão"]],"MR":[["8-14","Angio"]],"MQR":[["8-14","Gestão"]],"AA":[["14-17","AngioTAC"],["17-20","AngioTAC"]],"AM":[["8-14","UNIC"],["14-17","Angio"],["17-20","UNIC"]],"PP":[["14-17","RM"],["17-20","RM"]]},"2":{"SC":[["8-14","Angio"],["14-17","UNIC"],["17-20","Gestão"]],"MR":[["8-14","UNIC"],["14-17","UNIC/Angio"],["17-20","UNIC"]],"PP":[["8-14","Angio"],["14-17","Consulta"],["17-20","Consulta"]]},"3":{"SC":[["8-14","Angio"],["14-17","Gestão"],["17-20","Gestão"]],"MR":[["8-14","Angio"],["14-17","Consulta"]],"MQR":[["8-14","Gestão"],["14-17","UNIC"],["17-20","Consulta"]],"AA":[["8-14","UNIC"],["14-17","UNIC/Angio"],["17-20","UNIC"]],"AM":[["8-14","RM"],["14-17","Consulta"]]},"4":{"PP":[["8-14","Angio"]],"MR":[["8-14","Angio/UNIC"]],"AA":[["8-14","Consulta"]],"AM":[["14-17","Angio"]],"SC":[["8-14","Consulta"]],"MQR":[["8-14","Doppler"],["14-17","Gestão"],["17-20","Gestão"]]}},"names":{"MQR":"Manuel Ribeiro","SC":"Sérgio Castro","MR":"Marta Rodrigues","PP":"Pedro Pires","AA":"André Araújo","AM":"André Miranda"},"hasSched":{"0":["MQR","PP","AA","AM"],"1":["SC","MR","MQR","PP","AA","AM"],"2":["SC","MR","PP"],"3":["SC","MR","MQR","AA","AM"],"4":["SC","MR","MQR","PP","AA","AM"]},"colors":{"MR":{"bg":"#FCDDE9","text":"#831847","label":"rosa"},"SC":{"bg":"#C5E1FB","text":"#0D47A1","label":"azul"},"MQR":{"bg":"#FFF59D","text":"#5D4037","label":"amarelo"},"PP":{"bg":"#C8E6C9","text":"#1B5E20","label":"verde"},"AM":{"bg":"#FFCC80","text":"#BF360C","label":"laranja"},"AA":{"bg":"#D1C4E9","text":"#4A148C","label":"roxo"}},"subs":{"2026-05-26":[{"t":"AngioTAC","s":"AM","n":""},{"t":"RM","s":"SC","n":""}],"2026-05-28":[{"t":"UNIC","s":"MR","n":"AA ausente toda a UNIC 8-20"}],"2026-06-02":[{"t":"AngioTAC","s":"AM","n":""}],"2026-06-23":[{"t":"AngioTAC","s":"MR","n":""},{"t":"RM","s":"AM","n":""}]},"subsCount":6,"hash":"59d3454d9fe7555e"};
 const TODAY=new Date().toISOString().slice(0,10);
 const M=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 const NU={0:"PP",1:"AM",2:"MR",3:"AA",4:null};
+// Pares de Angio matinal 8-14h por dia (confirmado nos Horários):
+// Seg=AA+AM, Ter=SC+MR, Qua=SC+PP, Qui=SC+MR, Sex=PP+MR
 const ANGIO_PAIRS={0:["AA","AM"],1:["SC","MR"],2:["SC","PP"],3:["SC","MR"],4:["PP","MR"]};
-function normT(t){const s=(t||"").toLowerCase().replace(/[^a-zà-ú0-9/]/g,"");const keys=new Set();s.split("/").forEach(p=>{if(p.includes("angio"))keys.add("angio");else if(p.startsWith("rm"))keys.add("rm");else if(p.includes("unic"))keys.add("unic");else if(p.startsWith("tc"))keys.add("tc");else if(p.includes("consulta"))keys.add("consulta");else if(p.includes("doppler"))keys.add("doppler");else if(p)keys.add(p)});return keys}
-function matchSub(taskTxt,subs){if(!subs||!subs.length)return null;const tk=normT(taskTxt);for(const s of subs){const sk=normT(s.t);for(const k of tk)if(sk.has(k))return s}return null}
-function filterTask(t){if(!t)return null;const E=p=>/^(consulta|gest[aã]o)$/i.test(p.trim());if(E(t))return null;const parts=t.split("/").filter(p=>!E(p));return parts.length?parts.join("/"):null}
-function dB(d){if(d.a.length===0)return null;if(d.a.length===1){const c=NRI.colors[d.a[0]];return c?c.bg:null}const cs=d.a.map(p=>NRI.colors[p]?NRI.colors[p].bg:"#CCC");const n=cs.length;return"linear-gradient(135deg, "+cs.map((c,i)=>c+" "+(i/n*100).toFixed(0)+"%, "+c+" "+((i+1)/n*100).toFixed(0)+"%").join(", ")).join(", ")"}
-function dC(d){const c=["d"];if(d.a.length===0){if(d.t==="F")c.push("holiday");else if(d.t==="S"||d.t==="D")c.push("weekend")}if(d.d===TODAY)c.push("today");return c.join(" ")}
-function dS(d){const bg=dB(d);return bg?' style="background:'+bg+';color:#222"':""}
-function bY(){const r=document.getElementById("year");let h="";const bM={};NRI.days.forEach(d=>{const m=parseInt(d.d.split("-")[1]);(bM[m]=bM[m]||[]).push(d)});for(let m=1;m<=12;m++){h+='<div class="month"><p class="mname">'+M[m-1]+'</p><div class="mgrid">';["S","T","Q","Q","S","S","D"].forEach(x=>h+='<div class="mhdr">'+x+"</div>");const f=new Date(NRI.year,m-1,1);const fd=(f.getDay()+6)%7;for(let i=0;i<fd;i++)h+='<div class="d empty"></div>';(bM[m]||[]).forEach(d=>{const day=parseInt(d.d.split("-")[2]);const hasSub=(NRI.subs[d.d]||[]).length>0;const dot=hasSub?'<span class="subdot" title="Substituição"></span>':"";h+='<div class="'+dC(d)+'" data-date="'+d.d+'"'+dS(d)+'>'+day+dot+'</div>'});h+="</div></div>"}r.innerHTML=h;r.querySelectorAll(".d:not(.empty)").forEach(e=>e.addEventListener("click",()=>sD(e.dataset.date)))}
-function bL(){const r=document.getElementById("legend");let h="";["MR","SC","MQR","PP","AM","AA"].forEach(k=>{const c=NRI.colors[k];h+='<span style="background:'+c.bg+";color:"+c.text+'">'+k+" · "+c.label+"</span>"});h+='<span style="background:#FFE0B2;color:#8B4513">feriado</span><span style="background:#ededeb;color:#666">FDS sem ausências</span><span style="background:#185fa5;color:#fff">hoje</span><span style="background:#2E7D32;color:#fff">● substituição</span>';r.innerHTML=h}
-function sD(date){document.querySelectorAll(".d.selected").forEach(e=>e.classList.remove("selected"));const e=document.querySelector('.d[data-date="'+date+'"]');if(e)e.classList.add("selected");const d=NRI.days.find(x=>x.d===date);if(!d)return;const subsHere=(NRI.subs[date]||[]).slice();const usedSubIdx=new Set();const dt=new Date(date+"T12:00:00");const wd=(dt.getDay()+6)%7;const wn=["Segunda","Terça","Quarta","Quinta","Sexta","Sábado","Domingo"];const df=dt.toLocaleDateString("pt-PT",{day:"numeric",month:"long",year:"numeric"});const we=d.t==="S"||d.t==="D"||d.t==="F";const mt=d.h?"Feriado · "+d.h:(we?"Fim-de-semana":"Dia útil");let h='<div class="dhd"><div><p class="ddt">'+wn[wd]+", "+df+'</p><span class="dmt">'+mt+'</span></div></div><div class="drw"><span class="dlb">Ausências</span><div>';if(d.a.length===0)h+='<span style="color:#999;font-size:13px">—</span>';else d.a.forEach(m=>{const co=wd<5&&NRI.hasSched[String(wd)].includes(m);const c=NRI.colors[m];const sub=co?"":" · não conta";if(co)h+='<span class="pl" style="background:'+c.bg+";color:"+c.text+'">'+m+" · "+NRI.names[m]+sub+"</span>";else h+='<span class="pl absnc">'+m+" · "+NRI.names[m]+sub+"</span>"});h+="</div></div>";if(we){h+='<div class="drw"><span class="dlb">Cobertura dia todo</span><div>'+(d.f?'<span class="pl esc">'+d.f+'</span>':'<span style="color:#a32d2d;font-size:13px">não atribuído</span>')+"</div></div>"}else{h+='<div class="drw"><span class="dlb">Dia 8-20h</span><div><span style="font-size:12px;color:#666">via Horários</span></div></div><div class="drw"><span class="dlb">Noite 20-8h</span><div>';const u=NU[wd];if(d.n){h+='<span class="pl esc">'+d.n+"</span>";if(u&&d.n!==u&&!d.a.includes(u))h+='<span class="pl warn">deviação ('+u+")</span>";else if(u&&d.a.includes(u))h+='<span class="pl warn">substituto de '+u+"</span>"}else h+=u?'<span style="font-size:13px">padrão: '+u+"</span>":'<span style="color:#999;font-size:13px">—</span>';h+="</div></div>";if(d.a.length>0&&wd<5){let uc=[];d.a.forEach(m=>{((NRI.weekly[wd]||{})[m]||[]).forEach(([p,t])=>{const ft=filterTask(t);if(ft)uc.push({m,p,t:ft})})});const pair=ANGIO_PAIRS[wd];const angioAlerts=[];if(pair){const absInPair=pair.filter(m=>d.a.includes(m));if(absInPair.length===1){const alone=pair.find(m=>!d.a.includes(m));let note="";if(wd===4&&(absInPair[0]==="MR"||absInPair[0]==="PP")){note=" — "+absInPair[0]+" provavelmente de UNIC sexta (rotativo MR/PP)";if(d.a.includes("AA"))note+=" · AA também ausente"}else if(wd===4&&d.a.includes("AA")){note=" — AA ausente, pode precisar cobrir UNIC"}angioAlerts.push({absent:absInPair[0],alone:alone,note:note});uc=uc.filter(x=>!(x.p==="8-14"&&/angio/i.test(x.t)&&x.m===absInPair[0]))}}if(uc.length>0){h+='<div class="uncov"><div class="uctt">⚠ Tarefas clínicas a descoberto</div><ul>';uc.forEach(x=>{const match=matchSub(x.t,subsHere);let arrow="";if(match){arrow=' <span class="subarr">→ '+match.s+"</span>";const idx=subsHere.indexOf(match);if(idx>=0)usedSubIdx.add(idx)}h+="<li><strong>"+x.m+"</strong> "+x.p+"h → "+x.t+arrow+"</li>"});h+="</ul>";if(d.n){const friRule=wd===4?"Tarde 14h-20h + Noite 20h-8h":"Noite 20h-8h";h+='<div class="nightcov">ℹ <strong>'+friRule+'</strong> coberta por <strong>'+d.n+'</strong> (escala)</div>'}h+="</div>"}else if(angioAlerts.length===0)h+='<div class="ok">✓ Sem tarefas clínicas a descoberto</div>';if(angioAlerts.length>0){h+='<div class="partial"><div class="ptt">⚠ Angiografia 8-14h com 1 só médico</div><ul>';angioAlerts.forEach(a=>h+='<li><strong>'+a.absent+'</strong> → <strong>'+a.alone+'</strong> sozinho na Angio'+a.note+'</li>');h+="</ul></div>"}}}const extras=subsHere.filter((_,i)=>!usedSubIdx.has(i));if(extras.length){h+='<div class="subextra"><div class="subextt">↪ Substituições adicionais</div><ul>';extras.forEach(s=>h+="<li><strong>"+s.t+"</strong> → "+s.s+(s.n?' <span style="opacity:.8">·'+s.n+"</span>":"")+"</li>");h+="</ul></div>"}document.getElementById("det").innerHTML=h;document.getElementById("det").classList.add("show")}
-function bA(){const t=new Date(TODAY+"T00:00:00");const fu=NRI.days.filter(d=>new Date(d.d+"T00:00:00")>=t);const wk={};fu.forEach(d=>{const dt=new Date(d.d+"T00:00:00");const mn=new Date(dt);mn.setDate(dt.getDate()-((dt.getDay()+6)%7));const k=mn.toISOString().slice(0,10);(wk[k]=wk[k]||[]).push(d)});let h='<p style="font-size:12px;color:#666;margin-bottom:10px">Semanas com 1+ dia de multi-ausência.</p>';const cr=[];Object.keys(wk).sort().forEach(k=>{const ws=wk[k];const mu=ws.filter(d=>d.m);if(mu.length>=1){const ao=new Set();ws.forEach(d=>d.a.forEach(m=>ao.add(m)));cr.push({week:k,multi:mu,allOff:Array.from(ao)})}});cr.slice(0,12).forEach(c=>{const we=new Date(new Date(c.week+"T00:00:00").getTime()+6*86400000).toISOString().slice(0,10);const ws=c.week.slice(8,10)+"/"+c.week.slice(5,7);const wef=we.slice(8,10)+"/"+we.slice(5,7);const sev=c.multi.length>=4?"#fcebeb":"#faeeda";const sc=c.multi.length>=4?"#791f1f":"#854f0b";h+='<div class="al" style="background:'+sev+'"><strong style="color:'+sc+'">Semana '+ws+" – "+wef+"</strong>"+c.multi.length+" dia(s) com 2+ ausentes · "+c.allOff.join(", ")+"</div>"});if(cr.length===0)h+='<div class="al" style="background:#e1f5ee;color:#04342c"><strong style="color:#085041">Sem semanas críticas</strong>Não há multi-ausências futuras.</div>';document.getElementById("view-alert").innerHTML=h}
-function bS(){const r=document.getElementById("view-subs");const dates=Object.keys(NRI.subs).sort();if(dates.length===0){r.innerHTML='<div class="al" style="background:#e1f5ee;color:#04342c"><strong style="color:#085041">Sem substituições registadas</strong>Adiciona linhas na folha "Substitutos" do Agenda_NRI_2026.xlsx.</div>';return}let h='<p style="font-size:12px;color:#666;margin-bottom:10px">'+NRI.subsCount+' substituições registadas — clica numa data para abrir o dia.</p>';dates.forEach(d=>{const dt=new Date(d+"T12:00:00");const wn=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];const df=dt.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});const wd=(dt.getDay()+6)%7;h+='<div class="al" style="background:#e8f5e9;color:#1b5e20;cursor:pointer" onclick="sV(\'cal\');setTimeout(()=>sD(\''+d+'\'),50)"><strong style="color:#085041">'+wn[wd]+", "+df+" ("+d+")</strong>";NRI.subs[d].forEach(s=>{h+="<div>"+s.t+" → <strong>"+s.s+"</strong>"+(s.n?' <span style="opacity:.7">· '+s.n+"</span>":"")+"</div>"});h+="</div>"});r.innerHTML=h}
-function sV(v){document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.view===v));document.getElementById("view-cal").style.display=v==="cal"?"block":"none";document.getElementById("view-alert").classList.toggle("show",v==="alert");document.getElementById("view-subs").classList.toggle("show",v==="subs")}
-window.sV=sV;window.sD=sD;document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>sV(t.dataset.view)));bY();bL();bA();bS();sD(TODAY);
+function normT(t){
+  const s=(t||"").toLowerCase().replace(/[^a-zà-ú0-9/]/g,"");
+  const keys=new Set();
+  s.split("/").forEach(p=>{
+    if(p.includes("angio"))keys.add("angio");
+    else if(p.startsWith("rm"))keys.add("rm");
+    else if(p.includes("unic"))keys.add("unic");
+    else if(p.startsWith("tc"))keys.add("tc");
+    else if(p.includes("consulta"))keys.add("consulta");
+    else if(p.includes("doppler"))keys.add("doppler");
+    else if(p.includes("gest"))keys.add("gestao");
+    else if(p)keys.add(p);
+  });
+  return keys;
+}
+function matchSub(taskTxt,subs){
+  if(!subs||!subs.length)return null;
+  const tk=normT(taskTxt);
+  for(const s of subs){
+    const sk=normT(s.t);
+    for(const k of tk){ if(sk.has(k))return s; }
+  }
+  return null;
+}
+function filterTask(t){
+  // Consulta cancela quando ausente; Gestão não é clínica (organização da equipa) — omitir ambas.
+  if(!t)return null;
+  const isExcl = p => /^(consulta|gest[aã]o)$/i.test(p.trim());
+  if(isExcl(t))return null;
+  const parts=t.split("/").filter(p=>!isExcl(p));
+  return parts.length?parts.join("/"):null;
+}
+function dB(d){
+  if(d.a.length===0)return null;
+  if(d.a.length===1){const c=NRI.colors[d.a[0]];return c?c.bg:null;}
+  const cs=d.a.map(p=>NRI.colors[p]?NRI.colors[p].bg:"#CCC");
+  const n=cs.length;
+  return "linear-gradient(135deg, "+cs.map((c,i)=>c+" "+(i/n*100).toFixed(0)+"%, "+c+" "+((i+1)/n*100).toFixed(0)+"%").join(", ")+")";
+}
+function dC(d){
+  const c=["d"];
+  if(d.a.length===0){
+    if(d.t==="F")c.push("holiday");
+    else if(d.t==="S"||d.t==="D")c.push("weekend");
+  }
+  if(d.d===TODAY)c.push("today");
+  return c.join(" ");
+}
+function dS(d){const bg=dB(d);return bg?' style="background:'+bg+';color:#222"':"";}
+function bY(){
+  const r=document.getElementById("year");
+  let h="";
+  const bM={};
+  NRI.days.forEach(d=>{const m=parseInt(d.d.split("-")[1]);(bM[m]=bM[m]||[]).push(d);});
+  for(let m=1;m<=12;m++){
+    h+='<div class="month"><p class="mname">'+M[m-1]+'</p><div class="mgrid">';
+    ["S","T","Q","Q","S","S","D"].forEach(x=>h+='<div class="mhdr">'+x+'</div>');
+    const f=new Date(NRI.year,m-1,1);
+    const fd=(f.getDay()+6)%7;
+    for(let i=0;i<fd;i++)h+='<div class="d empty"></div>';
+    (bM[m]||[]).forEach(d=>{
+      const day=parseInt(d.d.split("-")[2]);
+      const hasSub=(NRI.subs[d.d]||[]).length>0;
+      const dot=hasSub?'<span class="subdot" title="Substituição"></span>':"";
+      h+='<div class="'+dC(d)+'" data-date="'+d.d+'"'+dS(d)+'>'+day+dot+'</div>';
+    });
+    h+="</div></div>";
+  }
+  r.innerHTML=h;
+  r.querySelectorAll(".d:not(.empty)").forEach(e=>e.addEventListener("click",()=>sD(e.dataset.date)));
+}
+function bL(){
+  const r=document.getElementById("legend");
+  let h="";
+  ["MR","SC","MQR","PP","AM","AA"].forEach(k=>{
+    const c=NRI.colors[k];
+    h+='<span style="background:'+c.bg+";color:"+c.text+'">'+k+" · "+c.label+"</span>";
+  });
+  h+='<span style="background:#FFE0B2;color:#8B4513">feriado</span><span style="background:#ededeb;color:#666">FDS sem ausências</span><span style="background:#185fa5;color:#fff">hoje</span><span style="background:#2E7D32;color:#fff">● substituição</span>';
+  r.innerHTML=h;
+}
+function sD(date){
+  document.querySelectorAll(".d.selected").forEach(e=>e.classList.remove("selected"));
+  const e=document.querySelector('.d[data-date="'+date+'"]');
+  if(e)e.classList.add("selected");
+  const d=NRI.days.find(x=>x.d===date);
+  if(!d)return;
+  const subsHere=(NRI.subs[date]||[]).slice();
+  const usedSubIdx=new Set();
+  const dt=new Date(date+"T12:00:00");
+  const wd=(dt.getDay()+6)%7;
+  const wn=["Segunda","Terça","Quarta","Quinta","Sexta","Sábado","Domingo"];
+  const df=dt.toLocaleDateString("pt-PT",{day:"numeric",month:"long",year:"numeric"});
+  const we=d.t==="S"||d.t==="D"||d.t==="F";
+  const mt=d.h?"Feriado · "+d.h:(we?"Fim-de-semana":"Dia útil");
+  let h='<div class="dhd"><div><p class="ddt">'+wn[wd]+", "+df+'</p><span class="dmt">'+mt+'</span></div></div><div class="drw"><span class="dlb">Ausências</span><div>';
+  if(d.a.length===0)h+='<span style="color:#999;font-size:13px">—</span>';
+  else d.a.forEach(m=>{
+    const co=wd<5&&NRI.hasSched[String(wd)].includes(m);
+    const c=NRI.colors[m];
+    const sub=co?"":" · não conta";
+    if(co)h+='<span class="pl" style="background:'+c.bg+";color:"+c.text+'">'+m+sub+"</span>";
+    else h+='<span class="pl absnc">'+m+sub+"</span>";
+  });
+  h+="</div></div>";
+  if(we){
+    const cf = d.f && d.a.includes(d.f);
+    const fLabel = d.f ? ('<span class="pl '+(cf?'bad':'esc')+'">'+d.f+(cf?' ⚠ AUSENTE':'')+'</span>') : '<span style="color:#a32d2d;font-size:13px">não atribuído</span>';
+    h+='<div class="drw'+(cf?' conflict':'')+'"><span class="dlb">Cobertura dia todo</span><div>'+fLabel+(cf?' <span style="color:#c0392b;font-weight:600;font-size:12px">⚠ INCOMPATIBILIDADE: escalado mas marcado ausente</span>':'')+"</div></div>";
+  } else {
+    {
+      // Médico principal de UNIC do dia (8-20h)
+      const u8 = NU[wd];
+      let dayLabel;
+      let conflictDay = false;
+      if (u8) {
+        if (d.a.includes(u8)) {
+          // Verificar se há substituto UNIC registado para hoje
+          const unicSub = matchSub("UNIC", subsHere);
+          if (unicSub) {
+            dayLabel = '<span class="pl absnc">'+u8+' ausente</span> <span class="subarr">→ '+unicSub.s+' cobre 8-20h</span>';
+            const idx = subsHere.indexOf(unicSub);
+            if (idx >= 0) usedSubIdx.add(idx);
+          } else {
+            dayLabel = '<span class="pl bad">⚠ '+u8+' ausente — a definir substituição (turno 8-20h)</span>';
+            conflictDay = true;
+          }
+        } else {
+          dayLabel = '<span class="pl esc">'+u8+'</span>';
+        }
+      } else {
+        // sexta: UNIC rotativa MR/PP
+        dayLabel = '<span style="font-size:12px;color:#666">via Horários (UNIC rotativa MR/PP)</span>';
+      }
+      h+='<div class="drw'+(conflictDay?' conflict':'')+'"><span class="dlb">Dia 8-20h</span><div>'+dayLabel+'</div></div>';
+    }
+    const u=NU[wd];
+    const cn = d.n && d.a.includes(d.n);
+    h+='<div class="drw'+(cn?' conflict':'')+'"><span class="dlb">Noite 20-8h</span><div>';
+    if(d.n){
+      h+='<span class="pl '+(cn?'bad':'esc')+'">'+d.n+(cn?' ⚠ AUSENTE':'')+"</span>";
+      if(cn) h+=' <span style="color:#c0392b;font-weight:600;font-size:12px">⚠ INCOMPATIBILIDADE: escalado mas marcado ausente</span>';
+      else if(u&&d.n!==u&&!d.a.includes(u))h+='<span class="pl warn">deviação ('+u+")</span>";
+      else if(u&&d.a.includes(u))h+='<span class="pl warn">substituto de '+u+"</span>";
+    } else h+=u?'<span style="font-size:13px">padrão: '+u+"</span>":'<span style="color:#999;font-size:13px">—</span>';
+    h+="</div></div>";
+    if(d.a.length>0&&wd<5){
+      let uc=[];
+      d.a.forEach(m=>{((NRI.weekly[wd]||{})[m]||[]).forEach(([p,t])=>{
+        // UNIC 14-17h é assegurada pelo médico da manhã — não conta como descoberto
+        if(p==="14-17" && /^UNIC$/i.test(t.trim())) return;
+        const ft=filterTask(t);if(ft)uc.push({m,p,t:ft});
+      });});
+      // Regra dos pares de Angio matinal: se só 1 do par está ausente, removê-lo do quadro vermelho
+      // e adicionar à caixa laranja (angiografia com 1 só médico).
+      const pair=ANGIO_PAIRS[wd];
+      const angioAlerts=[];
+      if(pair){
+        const absInPair=pair.filter(m=>d.a.includes(m));
+        if(absInPair.length===1){
+          const alone=pair.find(m=>!d.a.includes(m));
+          let note="";
+          // Sexta: se MR/PP aparece na esquerda, normalmente significa que está de UNIC sexta (rotativo), não ausência
+          if(wd===4&&(absInPair[0]==="MR"||absInPair[0]==="PP")){
+            note=" — "+absInPair[0]+" provavelmente de UNIC sexta (rotativo MR/PP)";
+            if(d.a.includes("AA"))note+=" · AA também ausente";
+          } else if(wd===4&&d.a.includes("AA")){
+            note=" — AA ausente, pode precisar cobrir UNIC";
+          }
+          // "Fica na angio 14-17": se o lone do par não tem nada agendado a 14-17,
+          // cobre também o 14-17 Angio do ausente (caso típico: 2ªf AA ausente → AM fica).
+          const aloneFree1417_sD=((NRI.weekly[wd]||{})[alone]||[]).filter(p_=>p_[0]==="14-17").length===0;
+          if(aloneFree1417_sD) note=(note?note+" · ":" — ")+alone+" fica na angio 14-17h";
+          angioAlerts.push({absent:absInPair[0],alone:alone,note:note});
+          uc=uc.filter(x=>!(x.p==="8-14"&&/angio/i.test(x.t)&&x.m===absInPair[0]));
+          if(aloneFree1417_sD) uc=uc.filter(x=>!(x.p==="14-17"&&/angio/i.test(x.t)&&x.m===absInPair[0]));
+        }
+        // Se ambos do par à sexta na esquerda: 1 UNIC + 1 ausente → Angio descoberto (deixar uc tal como está, ambos aparecem em vermelho)
+      }
+      // Fundir 14-17 + 17-20 do mesmo médico/tarefa em 14-20 para RM e AngioTAC.
+      // Na realidade é 1 turno só; só funde se ambos meios-turnos tiverem o mesmo estado de substituição
+      // (ambos sem sub, ou ambos com a mesma sub). Se diferentes, mantém a divisão.
+      {
+        const isMergeT=t=>{const n=(t||"").trim().toLowerCase();return n==="rm"||/^angio.?tac$/.test(n);};
+        const ucM=[],ucU=new Set();
+        for(let i=0;i<uc.length;i++){
+          if(ucU.has(i))continue;
+          const a=uc[i];
+          if(a.p==="14-17"&&isMergeT(a.t)){
+            let j=-1;
+            for(let k=0;k<uc.length;k++){
+              if(k===i||ucU.has(k))continue;
+              const b=uc[k];
+              if(b.m===a.m&&b.p==="17-20"&&b.t===a.t){j=k;break;}
+            }
+            if(j>=0){
+              const ma=matchSub(a.t,subsHere),mb=matchSub(uc[j].t,subsHere);
+              if(ma===mb){
+                ucM.push({m:a.m,p:"14-20",t:a.t});
+                ucU.add(i);ucU.add(j);
+                continue;
+              }
+            }
+          }
+        }
+        for(let i=0;i<uc.length;i++){if(!ucU.has(i))ucM.push(uc[i]);}
+        uc=ucM;
+      }
+      if(uc.length>0){
+        h+='<div class="uncov"><div class="uctt">⚠ Tarefas clínicas a descoberto</div><ul>';
+        uc.forEach(x=>{
+          const match=matchSub(x.t,subsHere);
+          let arrow="";
+          if(match){
+            arrow=' <span class="subarr">→ '+match.s+"</span>";
+            const idx=subsHere.indexOf(match);
+            if(idx>=0)usedSubIdx.add(idx);
+          }
+          h+="<li><strong>"+x.m+"</strong> "+x.p+"h → "+x.t+arrow+"</li>";
+        });
+        h+="</ul>";
+        if(d.n){
+          const friRule = wd===4 ? "Tarde 14h-20h + Noite 20h-8h" : "Noite 20h-8h";
+          h+='<div class="nightcov">ℹ <strong>'+friRule+'</strong> coberta por <strong>'+d.n+'</strong> (escala)</div>';
+        }
+        h+="</div>";
+      } else if(angioAlerts.length===0) h+='<div class="ok">✓ Sem tarefas clínicas a descoberto</div>';
+      // Caixa laranja: Angio com 1 só médico
+      if(angioAlerts.length>0){
+        h+='<div class="partial"><div class="ptt">⚠ Angiografia 8-14h com 1 só médico</div><ul>';
+        angioAlerts.forEach(a=>h+='<li><strong>'+a.absent+'</strong> ausente → <strong>'+a.alone+'</strong> sozinho na Angio'+a.note+'</li>');
+        h+="</ul></div>";
+      }
+    }
+  }
+  const extras=subsHere.filter((_,i)=>!usedSubIdx.has(i));
+  if(extras.length){
+    h+='<div class="subextra"><div class="subextt">↪ Substituições adicionais</div><ul>';
+    extras.forEach(s=>h+="<li><strong>"+s.t+"</strong> → "+s.s+(s.n?' <span style="opacity:.8">·'+s.n+"</span>":"")+"</li>");
+    h+="</ul></div>";
+  }
+  document.getElementById("det").innerHTML=h;
+  document.getElementById("det").classList.add("show");
+}
+function bA(){
+  const t=new Date(TODAY+"T00:00:00");
+  const fu=NRI.days.filter(d=>new Date(d.d+"T00:00:00")>=t);
+  // Detectar incompatibilidades (escalado tambem ausente) em todo o ano
+  const conflicts = NRI.days.filter(d => {
+    const sched = d.n || d.f;
+    return sched && d.a.includes(sched);
+  });
+  let h = "";
+  if(conflicts.length > 0){
+    h += '<div style="background:#fcebeb;border:2px solid #c0392b;border-radius:8px;padding:12px;margin-bottom:14px"><div style="font-weight:700;color:#c0392b;margin-bottom:8px;font-size:14px">🚨 INCOMPATIBILIDADES CRÍTICAS ('+conflicts.length+' dia'+(conflicts.length>1?'s':'')+')</div><div style="font-size:12px;color:#791f1f;margin-bottom:8px">Médico escalado para a noite/cobertura mas marcado como ausente no mesmo dia — risco de disrupção do serviço.</div><ul style="margin:0;padding-left:18px;color:#501313;font-size:13px">';
+    conflicts.forEach(c => {
+      const dt = new Date(c.d + "T12:00:00");
+      const wn = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+      const wd = (dt.getDay()+6)%7;
+      const df = dt.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
+      const sched = c.n || c.f;
+      const future = new Date(c.d+"T00:00:00") >= t ? "" : " <span style='opacity:.6'>(passado)</span>";
+      h += '<li style="margin:3px 0;cursor:pointer" onclick="sV(\'cal\');setTimeout(()=>sD(\''+c.d+'\'),50)"><strong>'+wn[wd]+', '+df+'</strong> ('+c.d+') · <strong style="color:#c0392b">'+sched+'</strong> escalado mas ausente'+future+'</li>';
+    });
+    h += '</ul></div>';
+  }
+  // 🔔 SUBSTITUIÇÕES POR DEFINIR — turnos descobertos durante o dia sem sub registado.
+  // Reaproveita as regras de sD: UNIC 14-17 não conta (coberto pela manhã), UNIC do médico
+  // UNIC do dia já está englobado no UNIC 8-20, filtro Angio matinal por pares, fusão RM/AngioTAC 14-20.
+  {
+    const pendingList = [];
+    fu.forEach(d => {
+      const dt = new Date(d.d+"T12:00:00");
+      const wdv = (dt.getDay()+6)%7;
+      const subsHere = (NRI.subs[d.d]||[]).slice();
+      const items = [];
+      if (wdv < 5 && d.t === "Ú") {
+        const u8 = NU[wdv];
+        if (u8 && d.a.includes(u8) && !matchSub("UNIC", subsHere)) {
+          items.push({label:"UNIC 8-20h", who:u8});
+        }
+        let uc = [];
+        d.a.forEach(m => {
+          ((NRI.weekly[wdv]||{})[m]||[]).forEach(([p,tk]) => {
+            if (p === "14-17" && /^UNIC$/i.test(tk.trim())) return;
+            if (m === u8 && /^UNIC$/i.test((tk||"").trim())) return;
+            const ft = filterTask(tk);
+            if (ft) uc.push({m:m, p:p, t:ft});
+          });
+        });
+        const pairP = ANGIO_PAIRS[wdv];
+        if (pairP) {
+          const absInPair = pairP.filter(m => d.a.includes(m));
+          if (absInPair.length === 1) {
+            const aloneP = pairP.find(m => !d.a.includes(m));
+            const aloneFree1417_bA = ((NRI.weekly[wdv]||{})[aloneP]||[]).filter(p_=>p_[0]==="14-17").length === 0;
+            uc = uc.filter(x => !(x.p === "8-14" && /angio/i.test(x.t) && x.m === absInPair[0]));
+            if (aloneFree1417_bA) {
+              uc = uc.filter(x => !(x.p === "14-17" && /angio/i.test(x.t) && x.m === absInPair[0]));
+            }
+          }
+        }
+        const isMergeT = tk => { const n=(tk||"").trim().toLowerCase(); return n==="rm"||/^angio.?tac$/.test(n); };
+        const ucM = [], ucU = new Set();
+        for (let i=0; i<uc.length; i++) {
+          if (ucU.has(i)) continue;
+          const a = uc[i];
+          if (a.p === "14-17" && isMergeT(a.t)) {
+            let j = -1;
+            for (let k=0; k<uc.length; k++) {
+              if (k===i || ucU.has(k)) continue;
+              const b = uc[k];
+              if (b.m === a.m && b.p === "17-20" && b.t === a.t) { j = k; break; }
+            }
+            if (j >= 0) {
+              const ma = matchSub(a.t, subsHere), mb = matchSub(uc[j].t, subsHere);
+              if (ma === mb) { ucM.push({m:a.m, p:"14-20", t:a.t}); ucU.add(i); ucU.add(j); continue; }
+            }
+          }
+        }
+        for (let i=0; i<uc.length; i++) if (!ucU.has(i)) ucM.push(uc[i]);
+        uc = ucM;
+        uc.forEach(x => {
+          if (!matchSub(x.t, subsHere)) items.push({label: x.p+"h "+x.t, who: x.m});
+        });
+      } else if (d.t === "S" || d.t === "D" || d.t === "F") {
+        if (d.f && d.a.includes(d.f) && !matchSub(d.f, subsHere)) {
+          items.push({label:"Cobertura dia todo", who:d.f});
+        }
+      }
+      if (items.length > 0) pendingList.push({d:d.d, items:items});
+    });
+    if (pendingList.length > 0) {
+      h += '<div style="background:#fff3e0;border:2px solid #FF9800;border-radius:8px;padding:12px;margin-bottom:14px"><div style="font-weight:700;color:#bf5500;margin-bottom:6px;font-size:14px">🔔 SUBSTITUIÇÕES POR DEFINIR ('+pendingList.length+' dia'+(pendingList.length>1?'s':'')+')</div><div style="font-size:12px;color:#854f0b;margin-bottom:8px">Turnos descobertos sem substituto registado. Clica para abrir o detalhe do dia.</div><ul style="margin:0;padding-left:18px;color:#6d3a00;font-size:13px;list-style:none">';
+      const wnP = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+      pendingList.forEach(pp => {
+        const dt2 = new Date(pp.d+"T12:00:00");
+        const wdv2 = (dt2.getDay()+6)%7;
+        const df2 = dt2.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
+        h += '<li style="margin:6px 0;cursor:pointer" onclick="sV(\'cal\');setTimeout(()=>sD(\''+pp.d+'\'),50)"><strong>'+wnP[wdv2]+', '+df2+'</strong> <span style="opacity:.7">('+pp.d+')</span><ul style="margin:2px 0 0;padding-left:18px;list-style:disc;color:#501313">';
+        pp.items.forEach(it => {
+          h += '<li><strong>'+it.label+'</strong> — '+it.who+' ausente, sem substituto</li>';
+        });
+        h += '</ul></li>';
+      });
+      h += '</ul></div>';
+    }
+  }
+  // ⚠️ ELEMENTO SOZINHO NA ANGIO — nota de risco organizacional.
+  // 1 do par 8-14 Angio ausente, outro cobre sozinho (sem substituto formal).
+  // Tecnicamente resolvido (1 médico assegura a angio) mas registado para gestão de carga/segurança.
+  {
+    const aloneOnAngio = [];
+    fu.forEach(d => {
+      if (d.t !== "Ú") return;
+      const dt2 = new Date(d.d+"T12:00:00");
+      const wdv2 = (dt2.getDay()+6)%7;
+      if (wdv2 >= 5) return;
+      const pair2 = ANGIO_PAIRS[wdv2];
+      if (!pair2) return;
+      const absInPair2 = pair2.filter(m => d.a.includes(m));
+      if (absInPair2.length !== 1) return;
+      const absent2 = absInPair2[0];
+      const alone2 = pair2.find(m => m !== absent2);
+      if (d.a.includes(alone2)) return;
+      // Se há sub explícita para Angio, é "Substituição registada" e não "sozinho"
+      const subsHere2 = (NRI.subs[d.d]||[]);
+      if (matchSub("Angio", subsHere2)) return;
+      const turnos = ["8-14h"];
+      const aloneFree1417_alone = ((NRI.weekly[wdv2]||{})[alone2]||[]).filter(p_=>p_[0]==="14-17").length === 0;
+      const absentHas1417Angio = ((NRI.weekly[wdv2]||{})[absent2]||[]).some(p_ => p_[0]==="14-17" && /angio/i.test(p_[1]));
+      if (aloneFree1417_alone && absentHas1417Angio) turnos.push("14-17h");
+      aloneOnAngio.push({d:d.d, lone:alone2, absent:absent2, turnos:turnos});
+    });
+    if (aloneOnAngio.length > 0) {
+      h += '<div style="background:#fff3e0;border:2px solid #f57c00;border-radius:8px;padding:12px;margin-bottom:14px"><div style="font-weight:700;color:#bf5500;margin-bottom:6px;font-size:14px">⚠️ ELEMENTO SOZINHO NA ANGIO ('+aloneOnAngio.length+' dia'+(aloneOnAngio.length>1?'s':'')+')</div><div style="font-size:12px;color:#854f0b;margin-bottom:8px">Resolvido na prática (1 só médico cobre), mas requer atenção à carga de trabalho e segurança. Clica para abrir o detalhe do dia.</div><ul style="margin:0;padding-left:18px;color:#6d3a00;font-size:13px;list-style:none">';
+      const wnA = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+      aloneOnAngio.forEach(a => {
+        const dtA = new Date(a.d+"T12:00:00");
+        const wdvA = (dtA.getDay()+6)%7;
+        const dfA = dtA.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
+        const turnosStr = a.turnos.join(" + ");
+        h += '<li style="margin:6px 0;cursor:pointer" onclick="sV(\'cal\');setTimeout(()=>sD(\''+a.d+'\'),50)"><strong>'+wnA[wdvA]+', '+dfA+'</strong> <span style="opacity:.7">('+a.d+')</span> · <strong>'+a.lone+'</strong> sozinho na Angio <strong>'+turnosStr+'</strong> ('+a.absent+' ausente)</li>';
+      });
+      h += '</ul></div>';
+    }
+  }
+  const wk={};
+  fu.forEach(d=>{
+    const dt=new Date(d.d+"T00:00:00");
+    const mn=new Date(dt);
+    mn.setDate(dt.getDate()-((dt.getDay()+6)%7));
+    const k=mn.toISOString().slice(0,10);
+    (wk[k]=wk[k]||[]).push(d);
+  });
+  h+='<p style="font-size:12px;color:#666;margin-bottom:10px">Semanas com 1+ dia de multi-ausência.</p>';
+  const cr=[];
+  Object.keys(wk).sort().forEach(k=>{
+    const ws=wk[k];
+    const mu=ws.filter(d=>d.m);
+    if(mu.length>=1){
+      const ao=new Set();
+      ws.forEach(d=>d.a.forEach(m=>ao.add(m)));
+      cr.push({week:k,multi:mu,allOff:Array.from(ao)});
+    }
+  });
+  cr.slice(0,12).forEach(c=>{
+    const we=new Date(new Date(c.week+"T00:00:00").getTime()+6*86400000).toISOString().slice(0,10);
+    const ws=c.week.slice(8,10)+"/"+c.week.slice(5,7);
+    const wef=we.slice(8,10)+"/"+we.slice(5,7);
+    const sev=c.multi.length>=4?"#fcebeb":"#faeeda";
+    const sc=c.multi.length>=4?"#791f1f":"#854f0b";
+    h+='<div class="al" style="background:'+sev+'"><strong style="color:'+sc+'">Semana '+ws+" – "+wef+"</strong>"+c.multi.length+" dia(s) com 2+ ausentes · "+c.allOff.join(", ")+"</div>";
+  });
+  if(cr.length===0)h+='<div class="al" style="background:#e1f5ee;color:#04342c"><strong style="color:#085041">Sem semanas críticas</strong>Não há multi-ausências futuras.</div>';
+  document.getElementById("view-alert").innerHTML=h;
+}
+function bS(){
+  const r=document.getElementById("view-subs");
+  const dates=Object.keys(NRI.subs).sort();
+  if(dates.length===0){
+    r.innerHTML='<div class="al" style="background:#e1f5ee;color:#04342c"><strong style="color:#085041">Sem substituições registadas</strong>Adiciona linhas na folha "Substitutos" do Agenda_NRI_2026.xlsx.</div>';
+    return;
+  }
+  let h='<p style="font-size:12px;color:#666;margin-bottom:10px">'+NRI.subsCount+' substituições registadas — clica numa data para abrir o dia.</p>';
+  dates.forEach(d=>{
+    const dt=new Date(d+"T12:00:00");
+    const wn=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+    const df=dt.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
+    const wd=(dt.getDay()+6)%7;
+    h+='<div class="al" style="background:#e8f5e9;color:#1b5e20;cursor:pointer" onclick="sV(\'cal\');setTimeout(()=>sD(\''+d+'\'),50)"><strong style="color:#085041">'+wn[wd]+", "+df+" ("+d+")</strong>";
+    NRI.subs[d].forEach(s=>{
+      h+="<div>"+s.t+" → <strong>"+s.s+"</strong>"+(s.n?' <span style="opacity:.7">· '+s.n+"</span>":"")+"</div>";
+    });
+    h+="</div>";
+  });
+  r.innerHTML=h;
+}
+function bO(){
+  const r=document.getElementById("view-overlap");
+  const meds=["MR","SC","MQR","PP","AM","AA"];
+  const days=NRI.days;
+  const N=days.length;
+  const isMob=window.matchMedia("(pointer:coarse) and (max-width:740px)").matches;
+  const isDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const colMonth=isDark?"#fff":"#000";
+  const colWeek=isDark?"#aaa":"#888";
+  const colLabel=isDark?"#fff":"#000";
+  const LP=44, RP=8, TP=26, GAP=12, DH=26;
+  const DW=isMob?7:1.8;
+  const RH=isMob?32:24;
+  const W=LP+N*DW+RP;
+  const chartH=TP+meds.length*RH+GAP+DH+10;
+  const monthStart={};
+  days.forEach((d,i)=>{const mn=parseInt(d.d.split("-")[1]);if(!(mn in monthStart)) monthStart[mn]=i;});
+  const monthNames=["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+  const todayIdx=days.findIndex(d=>d.d===TODAY);
+  let s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+chartH+'" style="display:block;width:100%;height:auto;min-width:'+W+'px;font-family:inherit">';
+  // weekly subtle lines
+  for(let i=0;i<N;i++){
+    const dt=new Date(days[i].d+"T12:00:00");
+    if(dt.getDay()===1){
+      const x=LP+i*DW;
+      s+='<line x1="'+x+'" y1="'+TP+'" x2="'+x+'" y2="'+(TP+meds.length*RH)+'" stroke="'+colWeek+'" stroke-width="1"/>';
+    }
+  }
+  // monthly lines + labels
+  for(let m=1;m<=12;m++){
+    const x0=LP+monthStart[m]*DW;
+    const next=m===12?N:monthStart[m+1];
+    const xMid=LP+(monthStart[m]+next)/2*DW;
+    s+='<line x1="'+x0+'" y1="'+(TP-4)+'" x2="'+x0+'" y2="'+(TP+meds.length*RH+GAP+DH)+'" stroke="'+colMonth+'" stroke-width="3.5"/>';
+    s+='<text x="'+xMid+'" y="'+(TP-8)+'" font-size="11" text-anchor="middle" font-weight="700" fill="'+colLabel+'">'+monthNames[m-1]+'</text>';
+  }
+  const xEnd=LP+N*DW;
+  s+='<line x1="'+xEnd+'" y1="'+(TP-4)+'" x2="'+xEnd+'" y2="'+(TP+meds.length*RH+GAP+DH)+'" stroke="'+colMonth+'" stroke-width="3.5"/>';
+  // today marker
+  if(todayIdx>=0){
+    const xT=LP+todayIdx*DW;
+    s+='<line x1="'+xT+'" y1="'+(TP-4)+'" x2="'+xT+'" y2="'+(TP+meds.length*RH+GAP+DH)+'" stroke="#185fa5" stroke-width="1.2" stroke-dasharray="3,2"/>';
+  }
+  // médico rows
+  meds.forEach((m,ri)=>{
+    const y=TP+ri*RH;
+    const c=NRI.colors[m];
+    s+='<text x="'+(LP-6)+'" y="'+(y+RH/2+4)+'" font-size="11" text-anchor="end" font-weight="600" fill="'+c.text+'">'+m+'</text>';
+    s+='<rect x="'+LP+'" y="'+(y+3)+'" width="'+(N*DW)+'" height="'+(RH-6)+'" fill="currentColor" fill-opacity="0.04"/>';
+    let runStart=-1;
+    for(let i=0;i<=N;i++){
+      const ab=i<N && days[i].a.includes(m);
+      if(ab && runStart<0) runStart=i;
+      else if(!ab && runStart>=0){
+        const x=LP+runStart*DW;
+        const w=(i-runStart)*DW;
+        const fromD=days[runStart].d, toD=days[i-1].d, dur=i-runStart;
+        s+='<rect x="'+x+'" y="'+(y+3)+'" width="'+w+'" height="'+(RH-6)+'" fill="'+c.bg+'" stroke="'+c.text+'" stroke-width="0.3" rx="2"><title>'+m+' · '+fromD+(dur>1?" → "+toD:"")+' ('+dur+' dia'+(dur>1?'s':'')+')</title></rect>';
+        runStart=-1;
+      }
+    }
+  });
+  // density bar
+  const densY=TP+meds.length*RH+GAP;
+  s+='<text x="'+(LP-6)+'" y="'+(densY+DH/2+4)+'" font-size="10" text-anchor="end" fill="currentColor" opacity="0.6">Total</text>';
+  s+='<line x1="'+LP+'" y1="'+(densY+DH)+'" x2="'+(LP+N*DW)+'" y2="'+(densY+DH)+'" stroke="currentColor" stroke-opacity="0.2" stroke-width="0.5"/>';
+  const palette=["transparent","#cfeac8","#a6d99b","#fde68a","#fbbf24","#f97316","#dc2626"];
+  days.forEach((d,i)=>{
+    const n=d.a.length;
+    if(n===0) return;
+    const fill=palette[Math.min(n,6)];
+    const h=Math.min(n,6)*(DH/6);
+    const x=LP+i*DW;
+    s+='<rect x="'+x+'" y="'+(densY+DH-h)+'" width="'+DW+'" height="'+h+'" fill="'+fill+'"><title>'+d.d+': '+n+' ausente'+(n>1?'s':'')+' ('+d.a.join(',')+')</title></rect>';
+  });
+  s+='</svg>';
+  // Header + per-médico totals + chart + critical weeks
+  let h='<p style="font-size:12px;color:#666;margin-bottom:8px">Sobreposições de ausências — barra por elemento. Linhas finas = segundas; linhas grossas = meses. Linha azul tracejada = hoje. Barra inferior = nº de ausentes/dia (densidade).</p>';
+  if(isMob) h+='<p style="font-size:11px;color:#999;text-align:center;margin:0 0 8px;font-weight:500">← arrasta o quadro para ver outras semanas →</p>';
+  h+='<div class="overlap-scroll" style="overflow-x:auto;-webkit-overflow-scrolling:touch;background:#fff;border:0.5px solid #e0ddd5;border-radius:8px;padding:8px 4px">'+s+'</div>';
+  // Critical weeks (≥3 num dia ou ≥4 pessoas distintas na semana)
+  const weeks={};
+  days.forEach(d=>{
+    const dt=new Date(d.d+"T00:00:00");
+    const mn=new Date(dt); mn.setDate(dt.getDate()-((dt.getDay()+6)%7));
+    const k=mn.toISOString().slice(0,10);
+    (weeks[k]=weeks[k]||[]).push(d);
+  });
+  const cw=[];
+  Object.keys(weeks).sort().forEach(k=>{
+    const ws=weeks[k];
+    const maxDay=Math.max(...ws.map(d=>d.a.length));
+    const totalDP=ws.reduce((s,d)=>s+d.a.length,0);
+    const peopleSet=new Set();
+    ws.forEach(d=>d.a.forEach(m=>peopleSet.add(m)));
+    if(maxDay>=3 || peopleSet.size>=4) cw.push({week:k,maxDay,totalDP,people:[...peopleSet]});
+  });
+  if(cw.length>0){
+    h+='<div style="margin-top:14px"><div style="font-weight:600;font-size:13px;color:#791f1f;margin-bottom:6px">Semanas com alta sobreposição ('+cw.length+')</div><div style="font-size:11px;color:#666;margin-bottom:6px">≥3 ausentes num dia, ou ≥4 pessoas distintas na semana — candidatas para reagendamento.</div>';
+    cw.forEach(c=>{
+      const ws2=c.week.slice(8,10)+"/"+c.week.slice(5,7);
+      const we=new Date(new Date(c.week+"T00:00:00").getTime()+6*86400000).toISOString().slice(0,10);
+      const wef=we.slice(8,10)+"/"+we.slice(5,7);
+      const sev=c.maxDay>=4?"#fcebeb":"#faeeda";
+      const sc=c.maxDay>=4?"#791f1f":"#854f0b";
+      h+='<div class="al" style="background:'+sev+';cursor:pointer" onclick="sV(\'cal\');setTimeout(()=>sD(\''+c.week+'\'),50)"><strong style="color:'+sc+'">Semana '+ws2+' – '+wef+'</strong>Pico '+c.maxDay+' ausente'+(c.maxDay>1?'s':'')+' num dia · '+c.totalDP+' dia-pessoa · '+c.people.join(", ")+'</div>';
+    });
+    h+='</div>';
+  }
+  r.innerHTML=h;
+  if(isMob && todayIdx>=0){
+    const sc=r.querySelector(".overlap-scroll");
+    if(sc) requestAnimationFrame(()=>{const tx=LP+todayIdx*DW-sc.clientWidth/2;sc.scrollLeft=Math.max(0,tx);});
+  }
+}
+function sV(v){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.view===v));
+  document.getElementById("view-cal").style.display=v==="cal"?"block":"none";
+  document.getElementById("view-alert").classList.toggle("show",v==="alert");
+  document.getElementById("view-subs").classList.toggle("show",v==="subs");
+  document.getElementById("view-overlap").classList.toggle("show",v==="overlap");
+  if(v==="overlap") bO();
+}
+window.sV=sV; window.sD=sD;
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>sV(t.dataset.view)));
+document.getElementById("btn-today").addEventListener("click",()=>{
+  sV("cal");
+  sD(TODAY);
+  const el=document.querySelector(".d.today");
+  if(el) requestAnimationFrame(()=>el.scrollIntoView({block:"center",behavior:"smooth"}));
+});
+// SWIPE MOBILE - navegar dia anterior/proximo no quadro inferior (#det).
+// So ativa em touch + viewport <=740px; resolve conflito com scroll vertical via detecao
+// de direcao dominante (precisa |dx|>|dy|*1.3 e percurso horizontal >50px).
+(function(){
+  const det=document.getElementById("det");
+  if(!det)return;
+  const mq=window.matchMedia("(pointer:coarse) and (max-width:740px)");
+  let curD=TODAY;
+  const _sD=window.sD;
+  window.sD=function(date){curD=date;return _sD(date);};
+  let sx=0,sy=0,st=0,dir=null,active=false;
+  det.addEventListener("touchstart",function(e){
+    if(!mq.matches||e.touches.length!==1)return;
+    sx=e.touches[0].clientX;sy=e.touches[0].clientY;st=Date.now();dir=null;active=true;
+  },{passive:true});
+  det.addEventListener("touchmove",function(e){
+    if(!active||!mq.matches)return;
+    const dx=e.touches[0].clientX-sx,dy=e.touches[0].clientY-sy;
+    if(dir===null && (Math.abs(dx)>10||Math.abs(dy)>10)){
+      dir=(Math.abs(dx)>Math.abs(dy)*1.3)?"h":"v";
+    }
+    if(dir==="h")e.preventDefault();
+  },{passive:false});
+  det.addEventListener("touchend",function(e){
+    if(!active||!mq.matches){active=false;return;}
+    active=false;
+    if(dir!=="h")return;
+    const t=e.changedTouches[0];
+    const dx=t.clientX-sx,dy=t.clientY-sy,dt=Date.now()-st;
+    if(dt>800||Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.3)return;
+    const idx=NRI.days.findIndex(x=>x.d===curD);
+    if(idx<0)return;
+    const nidx=dx<0?Math.min(NRI.days.length-1,idx+1):Math.max(0,idx-1);
+    if(nidx===idx)return;
+    const nd=NRI.days[nidx].d;
+    det.style.transform=dx<0?"translateX(-14px)":"translateX(14px)";
+    det.style.opacity="0.4";
+    setTimeout(function(){
+      sD(nd);
+      det.style.transform=dx<0?"translateX(14px)":"translateX(-14px)";
+      requestAnimationFrame(function(){
+        det.style.transform="translateX(0)";
+        det.style.opacity="1";
+      });
+      setTimeout(function(){det.style.transform="";det.style.opacity="";},220);
+    },130);
+  },{passive:true});
+})();
+bY();bL();bA();bS();sD(TODAY);
 </script></body></html>
