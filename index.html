@@ -336,7 +336,7 @@ function computeUncoveredForDay(d, wd){
 }
 function bPending(){
   const t=new Date(TODAY+"T00:00:00");
-  const next30 = new Date(t); next30.setDate(t.getDate()+30);
+  const next30 = new Date(t); next30.setDate(t.getDate()+60);
   const NIGHTM = {0:"PP",1:"AM",2:"MR",3:"AA",4:null};  // médico de noite habitual
   const pendingDays = [];
   NRI.days.forEach(d=>{
@@ -404,7 +404,7 @@ function bPending(){
   });
   let h = "";
   if(pendingDays.length>0){
-    h += '<div class="pend-box"><strong>🔔 SUBSTITUIÇÕES POR DEFINIR (próximos 30 dias · '+pendingDays.length+' dia'+(pendingDays.length>1?'s':'')+')</strong><div style="font-size:12px;color:#7f1d1d;margin-bottom:10px;opacity:.85">Turnos descobertos sem substituto registado. Clica para abrir o detalhe do dia.</div>';
+    h += '<div class="pend-box"><strong>🔔 SUBSTITUIÇÕES POR DEFINIR (próximos 60 dias · '+pendingDays.length+' dia'+(pendingDays.length>1?'s':'')+')</strong><div style="font-size:12px;color:#7f1d1d;margin-bottom:10px;opacity:.85">Turnos descobertos sem substituto registado. Clica para abrir o detalhe do dia.</div>';
     pendingDays.forEach(p=>{
       const dt = new Date(p.date+"T12:00:00");
       const wn = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
@@ -418,7 +418,17 @@ function bPending(){
     h += '</div>';
   }
   const al = document.getElementById("view-alert");
-  if(al) al.innerHTML = h + al.innerHTML;
+  if(al){
+    const cur = al.innerHTML;
+    // Inserir o bloco amarelo APÓS a vermelha (incompatibilidades) mas ANTES das semanas multi-ausência
+    const marker = '<p style="font-size:12px;color:#666;margin-bottom:10px">Semanas com';
+    const idx = cur.indexOf(marker);
+    if(idx >= 0){
+      al.innerHTML = cur.slice(0, idx) + h + cur.slice(idx);
+    } else {
+      al.innerHTML = cur + h;
+    }
+  }
 }
 function bC(){
   const r = document.getElementById("view-conf");
