@@ -336,20 +336,19 @@ function computeUncoveredForDay(d, wd){
 }
 function bPending(){
   const t=new Date(TODAY+"T00:00:00");
-  const next30 = new Date(t); next30.setDate(t.getDate()+30);
   const pending = [];
   NRI.days.forEach(d=>{
     const dd=new Date(d.d+"T00:00:00");
-    if(dd<t||dd>next30) return;
+    if(dd<t) return;  // só futuros
     const wd=(dd.getDay()+6)%7;
-    if(wd>=5) return;
+    if(wd>=5) return;  // só dias úteis (FDS sem tarefas regulares)
     const uc = computeUncoveredForDay(d, wd);
     const pendingTasks = uc.filter(x=>!x.matched);
     if(pendingTasks.length>0) pending.push({date:d.d, wd, tasks:pendingTasks});
   });
   let h = "";
   if(pending.length>0){
-    h += '<div class="pend-box"><strong>⏰ Substituições por definir — próximos 30 dias ('+pending.length+' dia'+(pending.length>1?'s':'')+')</strong>';
+    h += '<div class="pend-box"><strong>⏰ Substituições por definir — todas as tarefas a descoberto sem substituto ('+pending.length+' dia'+(pending.length>1?'s':'')+')</strong>';
     pending.forEach(p=>{
       const dt = new Date(p.date+"T12:00:00");
       const wn = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
@@ -359,68 +358,104 @@ function bPending(){
     });
     h += '</div>';
   }
-  // Inject no topo da view-alert
   const al = document.getElementById("view-alert");
   if(al) al.innerHTML = h + al.innerHTML;
 }
 function bC(){
   const r = document.getElementById("view-conf");
   if(!r) return;
-  let h = '<p style="font-size:12px;color:#666;margin-bottom:10px">Conflitos detectados em toda a escala 2026.</p>';
-  const tFuture = new Date(TODAY+"T00:00:00");
-  const t60 = new Date(tFuture); t60.setDate(tFuture.getDate()+60);
-  const conf1 = NRI.days.filter(d=>{const s=d.n||d.f; return s && d.a.includes(s);});
-  if(conf1.length){
-    h += '<div class="conf-box" style="background:#fcebeb;border-left-color:#c0392b;color:#791f1f"><strong>🚨 Escalado + Ausente no mesmo dia ('+conf1.length+')</strong>Médico escalado para a noite/FDS/feriado mas marcado como ausente — risco de disrupção.<ul>';
-    conf1.forEach(c=>{
-      const dt=new Date(c.d+"T12:00:00");
-      const wn=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
-      const wd=(dt.getDay()+6)%7;
-      const df=dt.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
-      const s=c.n||c.f;
-      h += '<li onclick="sV(\'cal\');setTimeout(()=>sD(\''+c.d+'\'),50)"><strong>'+wn[wd]+', '+df+'</strong> ('+c.d+') · '+s+' escalado mas marcado ausente</li>';
-    });
-    h += '</ul></div>';
+  const cellW = 14;
+  const rowH = 26;
+  const labelW = 50;
+  const headerH = 38;
+  const members = ["SC","MR","MQR","PP","AA","AM"];
+  const totalDays = NRI.days.length;
+  const totalW = totalDays * cellW;
+  // Map date -> dayIndex
+  const dayIdx = {};
+  NRI.days.forEach((d,i)=>{dayIdx[d.d]=i;});
+  // Cores
+  const C = NRI.colors;
+  let h = '<p style="font-size:12px;color:#666;margin-bottom:10px">Timeline de ausências 2026 — cada linha é um médico (cor própria). Linhas verticais grossas = início de mês, finas = semanas. Desliza horizontalmente para ver o ano.</p>';
+  h += '<div style="overflow-x:auto;background:#fff;border:0.5px solid #e0ddd5;border-radius:8px;padding:6px;-webkit-overflow-scrolling:touch"><div style="position:relative;width:'+(labelW+totalW)+'px;height:'+(headerH+members.length*rowH+8)+'px;font-family:monospace;font-size:10px">';
+  // Header: meses
+  let prevMonth = "";
+  for(let i=0;i<totalDays;i++){
+    const d = NRI.days[i];
+    const month = d.d.slice(5,7);
+    if(month !== prevMonth){
+      const monthName = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"][parseInt(month)-1];
+      h += '<div style="position:absolute;left:'+(labelW+i*cellW)+'px;top:2px;font-weight:700;color:#1c3a6e;font-size:11px">'+monthName+'</div>';
+      prevMonth = month;
+    }
   }
-  const conf2 = NRI.days.filter(d=>{
-    const dd = new Date(d.d+"T00:00:00");
-    if(dd<tFuture||dd>t60) return false;
-    if(d.t!=="U"||d.a.length===0) return false;
-    const wd=(dd.getDay()+6)%7;
-    const pair = ANGIO_PAIRS[wd];
-    if(!pair) return false;
-    return pair.filter(m=>d.a.includes(m)).length===1;
+  // Header: dias da semana (linha curta com letra)
+  for(let i=0;i<totalDays;i++){
+    const d = NRI.days[i];
+    const dt = new Date(d.d+"T12:00:00");
+    const wd = (dt.getDay()+6)%7;
+    const wdL = ["S","T","Q","Q","S","S","D"][wd];
+    const color = wd>=5 ? "#999" : "#666";
+    h += '<div style="position:absolute;left:'+(labelW+i*cellW)+'px;top:20px;width:'+cellW+'px;text-align:center;color:'+color+';font-size:9px">'+wdL+'</div>';
+  }
+  // Linhas verticais (mensais grossas, semanais finas)
+  for(let i=0;i<totalDays;i++){
+    const d = NRI.days[i];
+    const dt = new Date(d.d+"T12:00:00");
+    const wd = (dt.getDay()+6)%7;
+    const day = parseInt(d.d.slice(8,10));
+    if(day===1 && i>0){
+      // separador mensal grosso
+      h += '<div style="position:absolute;left:'+(labelW+i*cellW)+'px;top:'+headerH+'px;width:2px;height:'+(members.length*rowH)+'px;background:#444;z-index:2"></div>';
+    } else if(wd===0 && i>0){
+      // separador semanal fino
+      h += '<div style="position:absolute;left:'+(labelW+i*cellW)+'px;top:'+headerH+'px;width:1px;height:'+(members.length*rowH)+'px;background:#ddd"></div>';
+    }
+  }
+  // Linhas por médico
+  members.forEach((m, idx)=>{
+    const y = headerH + idx*rowH;
+    const c = C[m];
+    // Label esquerda
+    h += '<div style="position:absolute;left:0;top:'+(y+4)+'px;width:'+(labelW-4)+'px;text-align:right;font-weight:700;color:'+c.text+';background:'+c.bg+';border-radius:3px;padding:2px 4px;font-size:11px">'+m+'</div>';
+    // Linha base cinza (fundo do row)
+    h += '<div style="position:absolute;left:'+labelW+'px;top:'+(y+2)+'px;width:'+totalW+'px;height:'+(rowH-4)+'px;background:#f5f5f5;border-radius:2px"></div>';
+    // Para cada dia que o médico está ausente, colocar bloco da cor dele
+    NRI.days.forEach((d,i)=>{
+      if(d.a.includes(m)){
+        const x = labelW + i*cellW;
+        h += '<div title="'+d.d+'" data-date="'+d.d+'" style="position:absolute;left:'+x+'px;top:'+(y+2)+'px;width:'+(cellW-1)+'px;height:'+(rowH-4)+'px;background:'+c.bg+';border:0.5px solid '+c.text+';border-radius:2px;cursor:pointer" class="tl-cell"></div>';
+      }
+    });
   });
-  if(conf2.length){
-    h += '<div class="conf-box"><strong>⚠ Angio 8-14h com 1 só médico — próximos 60 dias ('+conf2.length+')</strong>Um do par habitual está ausente; o outro fica sozinho.<ul>';
-    conf2.forEach(d=>{
-      const dt=new Date(d.d+"T12:00:00");
-      const wn=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
-      const wd=(dt.getDay()+6)%7;
-      const pair = ANGIO_PAIRS[wd];
-      const absInPair = pair.filter(m=>d.a.includes(m));
-      const alone = pair.find(m=>!d.a.includes(m));
-      const df=dt.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
-      h += '<li onclick="sV(\'cal\');setTimeout(()=>sD(\''+d.d+'\'),50)"><strong>'+wn[wd]+', '+df+'</strong> · '+absInPair[0]+' ausente → <strong>'+alone+'</strong> sozinho</li>';
-    });
-    h += '</ul></div>';
+  // Marcador "hoje"
+  if(dayIdx[TODAY]!==undefined){
+    const xT = labelW + dayIdx[TODAY]*cellW;
+    h += '<div style="position:absolute;left:'+xT+'px;top:'+headerH+'px;width:'+cellW+'px;height:'+(members.length*rowH)+'px;background:rgba(24,95,165,0.15);border:2px solid #185fa5;border-radius:2px;z-index:3"></div>';
   }
-  const conf3 = NRI.days.filter(d=>{if(d.t!=="U") return false; const dd=new Date(d.d+"T00:00:00"); return dd>=tFuture && d.a.length>=3;});
-  if(conf3.length){
-    h += '<div class="conf-box" style="background:#fff5fa;border-left-color:#be185d;color:#831847"><strong>👥 Multi-ausência elevada (3+) — futuros ('+conf3.length+')</strong>Dias com 3 ou mais médicos ausentes em simultâneo.<ul>';
-    conf3.forEach(d=>{
+  h += '</div></div>';
+  // Sumário em baixo: dias com 3+ ausentes
+  const triple = NRI.days.filter(d=>d.a.length>=3);
+  if(triple.length){
+    h += '<div class="conf-box" style="margin-top:14px;background:#fff5fa;border-left-color:#be185d;color:#831847"><strong>👥 Dias com 3+ ausentes ('+triple.length+')</strong><ul>';
+    triple.slice(0,20).forEach(d=>{
       const dt=new Date(d.d+"T12:00:00");
       const wn=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
       const wd=(dt.getDay()+6)%7;
       const df=dt.toLocaleDateString("pt-PT",{day:"numeric",month:"short"});
-      h += '<li onclick="sV(\'cal\');setTimeout(()=>sD(\''+d.d+'\'),50)"><strong>'+wn[wd]+', '+df+'</strong> · '+d.a.length+' ausentes: '+d.a.join(", ")+'</li>';
+      h += '<li onclick="sV(\'cal\');setTimeout(()=>sD(\''+d.d+'\'),50)"><strong>'+wn[wd]+', '+df+'</strong> · '+d.a.join(", ")+'</li>';
     });
+    if(triple.length>20) h += '<li style="cursor:default;font-style:italic">… mais '+(triple.length-20)+' dias</li>';
     h += '</ul></div>';
-  }
-  if(conf1.length===0 && conf2.length===0 && conf3.length===0){
-    h += '<div class="al" style="background:#e1f5ee;color:#04342c"><strong style="color:#085041">Sem sobreposições</strong>Nenhum conflito detectado.</div>';
   }
   r.innerHTML = h;
+  // Click handler para os blocos da timeline
+  r.querySelectorAll('.tl-cell').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const d = el.getAttribute('data-date');
+      sV('cal'); setTimeout(()=>sD(d),50);
+    });
+  });
 }
 // Estender sV para suportar view conf
 const _oldSV = window.sV;
