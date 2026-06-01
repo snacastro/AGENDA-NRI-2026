@@ -315,7 +315,7 @@ document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>sV(t
 bY();bL();bA();bS();sD(TODAY);
 
 function computeUncoveredForDay(d, wd){
-  if (d.t!=="U" || d.a.length===0 || wd>=5) return [];
+  if (d.t!=="Ú" || d.a.length===0 || wd>=5) return [];
   let uc = [];
   d.a.forEach(m=>{
     ((NRI.weekly[wd]||{})[m]||[]).forEach(([p,t])=>{
@@ -336,30 +336,41 @@ function computeUncoveredForDay(d, wd){
 }
 function bPending(){
   const t=new Date(TODAY+"T00:00:00");
-  // Para cada ausente em dia útil, agrupar tarefas UNIC e listar compostos/outros
+  const next30 = new Date(t); next30.setDate(t.getDate()+30);
+  const NIGHTM = {0:"PP",1:"AM",2:"MR",3:"AA",4:null};  // médico de noite habitual
   const pendingDays = [];
   NRI.days.forEach(d=>{
     const dd=new Date(d.d+"T00:00:00");
-    if(dd<t) return;  // só futuros
-    if(d.t!=="U" || d.a.length===0) return;
+    if(dd<t||dd>next30) return;  // só próximos 30 dias
+    if(d.t!=="Ú" || d.a.length===0) return;  // só dias úteis com ausentes
     const wd=(dd.getDay()+6)%7;
-    if(wd>=5) return;
+    if(wd>=5) return;  // só seg-sex
     const subsHere = NRI.subs[d.d] || [];
     const pair = ANGIO_PAIRS[wd];
     const absInPair = pair ? pair.filter(m=>d.a.includes(m)) : [];
     const dayItems = [];
+    // 1. UNIC noite (20-08): só se médico habitual de noite ausente E sem substituto E escalado também não cobre
+    const nightDoc = NIGHTM[wd];
+    if(nightDoc && d.a.includes(nightDoc)){
+      // Verificar se o escalado (d.n) cobre — se é diferente do habitual e não está ausente, está coberto
+      const covered = d.n && d.n !== nightDoc && !d.a.includes(d.n);
+      if(!covered && !matchSub("UNIC", subsHere)){
+        dayItems.push({who:nightDoc, label:"UNIC 20-08h"});
+      }
+    }
+    // 2. Tarefas DIA por ausente
     d.a.forEach(m=>{
       const slots = (NRI.weekly[wd]||{})[m] || [];
-      // Filtrar clinicos (excluir Cons/Inv/Reunião/Gestão)
       let clinical = slots.map(([p,t])=>{
         const ft = filterTask(t);
         return ft ? {p, t:ft} : null;
       }).filter(Boolean);
-      // Excluir Angio 8-14 se médico está no par e só 1 ausente do par (coberto pelo outro)
+      // Angio 8-14: se médico está no par E o outro do par também está ausente → MANTER (par totalmente ausente, angio descoberto)
+      // se só este do par está ausente → FILTRAR (Angio coberto pelo outro)
       if(pair && pair.includes(m) && absInPair.length===1){
         clinical = clinical.filter(s=>!(s.p==="8-14" && /angio/i.test(s.t)));
       }
-      // Separar UNIC-like (contém UNIC) e outros
+      // Separar UNIC-like e outros
       const unicSlots = clinical.filter(s=>/UNIC/i.test(s.t))
         .sort((a,b)=>parseInt(a.p)-parseInt(b.p));
       const others = clinical.filter(s=>!/UNIC/i.test(s.t));
@@ -372,7 +383,6 @@ function bPending(){
         else { if(cur) unicGroups.push(cur); cur = {start:st, end:en}; }
       });
       if(cur) unicGroups.push(cur);
-      // Adicionar items: grupos UNIC + compostos UNIC (com /) + outros
       const items = [];
       unicGroups.forEach(g=>items.push({label:"UNIC "+g.start+"-"+g.end+"h", time:g.start, raw:"UNIC"}));
       unicSlots.filter(s=>s.t.includes("/")).forEach(s=>{
@@ -384,7 +394,6 @@ function bPending(){
         items.push({label:s.t+" "+s.p+"h", time:st, raw:s.t});
       });
       items.sort((a,b)=>a.time-b.time);
-      // Filtrar items que JÁ têm substituto
       items.forEach(it=>{
         if(!matchSub(it.raw, subsHere)){
           dayItems.push({who:m, label:it.label});
@@ -395,7 +404,7 @@ function bPending(){
   });
   let h = "";
   if(pendingDays.length>0){
-    h += '<div class="pend-box"><strong>🔔 SUBSTITUIÇÕES POR DEFINIR ('+pendingDays.length+' dia'+(pendingDays.length>1?'s':'')+')</strong><div style="font-size:12px;color:#7f1d1d;margin-bottom:10px;opacity:.85">Turnos descobertos sem substituto registado. Clica para abrir o detalhe do dia.</div>';
+    h += '<div class="pend-box"><strong>🔔 SUBSTITUIÇÕES POR DEFINIR (próximos 30 dias · '+pendingDays.length+' dia'+(pendingDays.length>1?'s':'')+')</strong><div style="font-size:12px;color:#7f1d1d;margin-bottom:10px;opacity:.85">Turnos descobertos sem substituto registado. Clica para abrir o detalhe do dia.</div>';
     pendingDays.forEach(p=>{
       const dt = new Date(p.date+"T12:00:00");
       const wn = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
